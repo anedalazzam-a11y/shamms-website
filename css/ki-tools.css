@@ -1,0 +1,302 @@
+/* ============================================================
+   SHAMMS – KI-Tools (Zusatzmodul)
+   ------------------------------------------------------------
+   Diese Datei ist REIN ADDITIV. Sie ändert keine bestehende Regel.
+   Alle Selektoren sind mit .kt- gekapselt und verwenden ausschliess-
+   lich die vorhandenen Design-Tokens aus css/shamms-ui.css
+   (--yellow, --ink, --cream, --line, --r-md, --shadow-s ...).
+   ============================================================ */
+
+/* ---------- Kopfteil der Übersicht -------------------------- */
+.kt-head{padding-top:clamp(28px,4vw,46px)}
+.kt-head .sec-head{margin-bottom:22px}
+.kt-head h1{font-size:clamp(30px,6.4vw,52px);letter-spacing:-.03em;line-height:1.06;margin:12px 0 0}
+.kt-head .kt-lede{color:var(--muted);font-size:clamp(15px,1.6vw,17.5px);line-height:1.62;max-width:62ch;margin-top:14px}
+
+.kt-stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.kt-stat{display:inline-flex;align-items:center;gap:8px;font-size:13px;color:var(--muted);
+  background:var(--cream-2);border:1px solid var(--line);border-radius:999px;padding:7px 14px}
+.kt-stat b{color:var(--ink);font-weight:700}
+
+/* ---------- Hinweiskasten ---------------------------------- */
+.kt-note{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--line);
+  border-radius:var(--r-md);padding:14px 16px;background:var(--cream-2);margin-top:26px}
+.kt-note i{flex:0 0 auto;width:22px;height:22px;border-radius:50%;background:var(--yellow);
+  color:var(--ink);display:grid;place-items:center;font-size:12px;font-weight:900;font-style:normal;margin-top:1px}
+.kt-note p{margin:0;color:var(--muted);font-size:13.5px;line-height:1.6}
+.kt-note.is-ok i{background:#1F7A4D;color:#fff}
+
+/* ---------- Suche + Filter --------------------------------- */
+.kt-tools-bar{display:flex;gap:14px;flex-wrap:wrap;align-items:center;margin:0 0 18px}
+.kt-search{position:relative;flex:1 1 320px;min-width:0}
+.kt-search svg{position:absolute;left:16px;top:50%;transform:translateY(-50%);
+  width:17px;height:17px;stroke:var(--muted);fill:none;stroke-width:2;pointer-events:none}
+.kt-search input{width:100%;font:inherit;font-size:15.5px;color:var(--ink);
+  background:var(--paper);border:1px solid var(--line-strong);border-radius:999px;
+  padding:14px 18px 14px 44px;outline:none;transition:border-color .2s, box-shadow .2s}
+.kt-search input::placeholder{color:var(--muted)}
+.kt-search input:focus{border-color:var(--ink);box-shadow:0 0 0 3px rgba(252,217,74,.45)}
+.kt-select{font:inherit;font-size:14.5px;color:var(--ink);background:var(--paper);
+  border:1px solid var(--line-strong);border-radius:999px;padding:13px 16px;outline:none;cursor:pointer}
+.kt-select:focus{border-color:var(--ink);box-shadow:0 0 0 3px rgba(252,217,74,.45)}
+
+.kt-chips{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 22px}
+.kt-chip{font:inherit;font-size:13.5px;font-weight:500;color:var(--ink);
+  background:var(--paper);border:1px solid var(--line-strong);border-radius:999px;
+  padding:9px 15px;cursor:pointer;transition:background .2s, border-color .2s, transform .18s}
+.kt-chip:hover{transform:translateY(-1px)}
+.kt-chip[aria-pressed="true"]{background:var(--yellow);border-color:var(--yellow-deep)}
+
+.kt-count{font-size:13.5px;color:var(--muted);margin:0 0 16px}
+.kt-count b{color:var(--ink)}
+
+.kt-none{border:1px dashed var(--line-strong);border-radius:var(--r-lg);
+  padding:34px 24px;text-align:center;color:var(--muted);font-size:15px}
+.kt-none b{display:block;color:var(--ink);font-size:17px;margin-bottom:6px}
+
+/* ---------- Kachel (baut auf .card auf) -------------------- */
+.kt-card-mark{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.kt-mark{flex:0 0 auto;width:52px;height:52px;border-radius:16px;background:var(--yellow);
+  color:var(--ink);display:grid;place-items:center;font-family:"Roboto Mono",monospace;
+  font-weight:700;font-size:19px;letter-spacing:-.02em}
+.kt-mark.is-neutral{background:var(--cream);color:var(--ink-2)}
+.kt-company{font-size:12.5px;color:var(--muted);line-height:1.4}
+.kt-card h3{margin:0;font-size:19px;letter-spacing:-.02em}
+.kt-card .kt-desc{color:var(--muted);font-size:14.5px;line-height:1.58;margin:9px 0 0}
+.kt-tags{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0 0}
+.kt-usecases{list-style:none;margin:14px 0 0;padding:0}
+.kt-usecases li{font-size:13.5px;color:var(--ink-2);padding:4px 0 4px 20px;position:relative;line-height:1.5}
+.kt-usecases li::before{content:"";position:absolute;left:0;top:11px;width:6px;height:6px;
+  border-radius:50%;background:var(--yellow-deep)}
+.kt-link-only{font-size:13px;color:var(--muted)}
+
+/* ---------- Detailseite ------------------------------------ */
+.kt-crumb{font-size:13px;color:var(--muted);padding-top:22px}
+.kt-crumb a{color:var(--muted);border-bottom:1px solid var(--line-strong)}
+.kt-crumb a:hover{color:var(--ink)}
+.kt-crumb span{margin:0 8px}
+
+.kt-detail{display:grid;grid-template-columns:minmax(0,1fr) 336px;gap:34px;align-items:start}
+.kt-detail h2{font-size:clamp(21px,2.4vw,26px);letter-spacing:-.02em;margin:38px 0 12px}
+.kt-detail h2:first-child{margin-top:0}
+.kt-detail p{color:var(--muted);font-size:15.5px;line-height:1.72}
+.kt-lead{font-size:17px}
+
+.kt-list{list-style:none;margin:0;padding:0}
+.kt-list li{position:relative;padding:8px 0 8px 26px;font-size:15px;color:var(--ink);line-height:1.6}
+.kt-list li::before{position:absolute;left:0;top:8px;font-weight:900}
+.kt-list.is-ok li::before{content:"✓";color:#1F7A4D}
+.kt-list.is-no li::before{content:"–";color:var(--muted)}
+
+.kt-split{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.kt-box{border:1px solid var(--line);border-radius:var(--r-md);padding:20px 22px;background:var(--paper)}
+.kt-box h3{margin:0 0 10px;font-size:16px;letter-spacing:-.01em}
+.kt-box.is-ok{border-color:rgba(31,122,77,.28);background:rgba(31,122,77,.045)}
+.kt-box.is-no{border-color:var(--line-strong);background:var(--cream-2)}
+
+/* Steckbrief */
+.kt-side{position:sticky;top:96px;display:flex;flex-direction:column;gap:16px}
+.kt-facts{border:1px solid var(--line);border-radius:var(--r-lg);background:var(--paper);
+  box-shadow:var(--shadow-s);padding:22px 22px 20px}
+.kt-facts dl{margin:0;display:grid;gap:12px}
+.kt-facts dt{font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);
+  font-family:"Roboto Mono",monospace}
+.kt-facts dd{margin:4px 0 0;font-size:14.5px;color:var(--ink);line-height:1.55}
+.kt-facts .kt-cta{margin-top:20px;width:100%}
+.kt-facts .kt-fineprint{margin:12px 0 0;font-size:12.5px;color:var(--muted);line-height:1.5;text-align:center}
+
+.kt-badge{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;font-weight:600;
+  border-radius:999px;padding:6px 12px;background:rgba(22,20,21,.05);color:var(--muted)}
+.kt-badge.is-y{background:rgba(252,217,74,.35);color:#6b5600}
+
+/* Alternativen */
+.kt-alts{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.kt-alt{display:block;border:1px solid var(--line);border-radius:var(--r-md);
+  background:var(--paper);padding:18px;text-decoration:none;transition:transform .25s, box-shadow .3s, border-color .3s}
+.kt-alt:hover{transform:translateY(-3px);box-shadow:var(--shadow-s);border-color:var(--line-strong)}
+.kt-alt b{display:block;font-size:16px;color:var(--ink);letter-spacing:-.01em}
+.kt-alt span{display:block;margin-top:6px;font-size:13.5px;color:var(--muted);line-height:1.5}
+
+/* ---------- Responsive ------------------------------------- */
+@media(max-width:980px){
+  .kt-detail{grid-template-columns:1fr;gap:26px}
+  .kt-side{position:static}
+}
+@media(max-width:700px){
+  .kt-split{grid-template-columns:1fr}
+  .kt-search{flex:1 1 100%}
+  .kt-select{width:100%}
+  .kt-card-foot-stack{flex-direction:column;align-items:stretch}
+}
+@media(prefers-reduced-motion:reduce){
+  .kt-chip,.kt-alt{transition:none}
+  .kt-chip:hover,.kt-alt:hover{transform:none}
+}
+
+/* ============================================================
+   SHAMMS – KI-Tools: App-Ansicht (Stufe 2)
+   Weiterhin rein additiv, nur .kt--Selektoren, gleiche Tokens.
+   ============================================================ */
+
+/* ---------- App-Kacheln in der Übersicht -------------------- */
+.kt-apps{display:grid;grid-template-columns:repeat(auto-fill,minmax(296px,1fr));gap:20px}
+
+.kt-app{display:flex;flex-direction:column;text-decoration:none;color:inherit;
+  background:var(--paper);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:22px 22px 20px;box-shadow:var(--shadow-s);
+  transition:transform .3s cubic-bezier(.2,.7,.3,1), box-shadow .3s, border-color .3s}
+.kt-app:hover{transform:translateY(-4px);box-shadow:var(--shadow-m);border-color:var(--line-strong)}
+.kt-app:focus-visible{outline:3px solid var(--yellow-deep);outline-offset:2px}
+
+.kt-app-top{display:flex;gap:16px;align-items:flex-start}
+.kt-app-ic{flex:0 0 auto;width:72px;height:72px;border-radius:20px;background:#fff;
+  border:1px solid var(--line);box-shadow:var(--shadow-s);
+  display:grid;place-items:center;padding:13px;overflow:hidden}
+.kt-app-ic img{width:100%;height:100%;object-fit:contain;display:block}
+.kt-app-id{min-width:0}
+.kt-app-name{margin:3px 0 0;font-size:18px;font-weight:800;letter-spacing:-.02em;color:var(--ink);
+  line-height:1.25;overflow-wrap:anywhere}
+.kt-app-co{margin-top:4px;font-size:12.5px;color:var(--muted);line-height:1.4}
+
+.kt-app-desc{margin:14px 0 0;font-size:14px;line-height:1.55;color:var(--muted)}
+
+.kt-app-uses{list-style:none;margin:12px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.kt-app-uses li{font-size:12px;color:var(--ink-2);background:var(--cream);
+  border-radius:999px;padding:5px 11px;line-height:1.3}
+
+.kt-app-foot{margin-top:auto;padding-top:16px;display:flex;align-items:center;
+  justify-content:space-between;gap:10px;border-top:1px solid var(--line)}
+.kt-app-price{font-size:12px;color:var(--muted);line-height:1.35}
+.kt-app-price b{display:block;color:var(--ink);font-size:12.5px;font-weight:700}
+.kt-app-go{flex:0 0 auto;display:inline-flex;align-items:center;gap:7px;font-size:13.5px;
+  font-weight:700;color:var(--ink);white-space:nowrap}
+.kt-app-go i{font-style:normal;transition:transform .25s}
+.kt-app:hover .kt-app-go i{transform:translateX(3px)}
+
+/* ---------- App-Kopf der Detailseite ------------------------ */
+.kt-hero{display:grid;grid-template-columns:auto minmax(0,1fr);gap:26px;align-items:center;
+  padding-top:clamp(14px,2.4vw,26px)}
+.kt-hero-ic{width:104px;height:104px;border-radius:26px;background:#fff;border:1px solid var(--line);
+  box-shadow:var(--shadow-m);display:grid;place-items:center;padding:18px;overflow:hidden}
+.kt-hero-ic img{width:100%;height:100%;object-fit:contain;display:block}
+.kt-hero h1{margin:6px 0 0;font-size:clamp(28px,5.6vw,46px);letter-spacing:-.03em;line-height:1.05}
+.kt-hero .kt-app-co{margin-top:8px;font-size:13.5px}
+.kt-hero .kt-tags{margin-top:14px}
+
+.kt-panel{display:grid;grid-template-columns:repeat(auto-fit,minmax(158px,1fr));gap:12px;margin-top:26px}
+.kt-panel div{border:1px solid var(--line);border-radius:var(--r-md);background:var(--paper);padding:14px 16px}
+.kt-panel dt{font-family:"Roboto Mono",monospace;font-size:10.5px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted)}
+.kt-panel dd{margin:6px 0 0;font-size:14.5px;font-weight:600;color:var(--ink);line-height:1.4}
+.kt-panel dd.is-yes{color:#1F7A4D}
+.kt-panel dd.is-no{color:var(--muted)}
+
+/* ---------- Produktbild ------------------------------------- */
+.kt-shot{margin:32px 0 0;border:1px solid var(--line);border-radius:var(--r-lg);
+  overflow:hidden;background:var(--cream-2);box-shadow:var(--shadow-s)}
+.kt-shot img{display:block;width:100%;height:auto}
+.kt-shot figcaption{padding:10px 16px;border-top:1px solid var(--line);background:var(--paper);
+  font-size:11.5px;color:var(--muted);line-height:1.5}
+
+/* ---------- Abschluss-Handlungsblock ------------------------ */
+.kt-start{margin:44px 0 0;border:1px solid var(--line);border-radius:var(--r-lg);
+  background:var(--cream-2);padding:clamp(22px,3.4vw,32px);text-align:center}
+.kt-start h2{margin:0;font-size:clamp(19px,2.6vw,24px);letter-spacing:-.02em}
+.kt-start p{margin:10px auto 0;max-width:52ch;color:var(--muted);font-size:14.5px;line-height:1.6}
+.kt-start .btn{margin-top:20px}
+.kt-start .kt-fineprint{margin-top:12px;font-size:11.5px;color:var(--muted)}
+
+/* ---------- Kleingedrucktes (nur wenn Links Provisionen tragen) */
+.kt-disclosure{margin:30px 0 0;font-size:11.5px;color:var(--muted);line-height:1.55}
+
+/* ---------- Mobil ------------------------------------------- */
+@media(max-width:700px){
+  .kt-apps{grid-template-columns:1fr;gap:16px}
+  .kt-app{padding:18px 18px 16px}
+  .kt-app-ic{width:64px;height:64px;border-radius:18px;padding:12px}
+  .kt-hero{grid-template-columns:1fr;gap:18px;justify-items:start}
+  .kt-hero-ic{width:84px;height:84px;border-radius:22px;padding:15px}
+  .kt-hero h1{font-size:28px}
+  .kt-panel{grid-template-columns:repeat(2,1fr);gap:10px}
+}
+@media(max-width:380px){
+  .kt-panel{grid-template-columns:1fr}
+}
+
+/* ---------- Gestaltete Ansicht, wenn kein Produktbild vorliegt ------ */
+.kt-shot-design{background:var(--cream-2)}
+.kt-design{display:grid;grid-template-columns:auto minmax(0,1fr);gap:22px;align-items:center;
+  padding:clamp(24px,4vw,40px);
+  background:linear-gradient(135deg,rgba(252,217,74,.22),rgba(244,241,234,.9) 62%)}
+.kt-design-ic{width:84px;height:84px;border-radius:22px;background:#fff;border:1px solid var(--line);
+  box-shadow:var(--shadow-s);display:grid;place-items:center;padding:15px}
+.kt-design-ic img{width:100%;height:100%;object-fit:contain;display:block}
+.kt-design b{display:block;font-size:clamp(19px,2.6vw,25px);letter-spacing:-.02em;color:var(--ink)}
+.kt-design span{display:block;margin-top:6px;font-size:14px;color:var(--muted);line-height:1.5}
+.kt-design-chips{grid-column:1 / -1;list-style:none;margin:6px 0 0;padding:0;
+  display:flex;flex-wrap:wrap;gap:8px}
+.kt-design-chips li{font-size:12.5px;color:var(--ink-2);background:#fff;border:1px solid var(--line);
+  border-radius:999px;padding:6px 13px;line-height:1.3}
+@media(max-width:700px){
+  .kt-design{grid-template-columns:1fr;gap:16px;padding:22px}
+  .kt-design-ic{width:72px;height:72px;border-radius:18px;padding:13px}
+  .kt-design-chips{grid-column:auto}
+}
+
+/* ---------- KI-Chat (BYOK) ---------------------------------- */
+.kt-chat{margin-top:40px}
+.kt-chat-note{background:rgba(252,217,74,.18);border:1px solid rgba(22,20,21,.12);border-radius:var(--r-md);
+  padding:14px 16px;font-size:13.5px;line-height:1.6;color:var(--ink);margin:14px 0 0}
+.kt-chat-note b{font-weight:800}
+
+.kt-chat-setup{margin:18px 0 0;border:1px solid var(--line);border-radius:var(--r-md);background:var(--paper);overflow:hidden}
+.kt-chat-setup>summary{cursor:pointer;padding:14px 18px;font-weight:700;font-size:14.5px;background:var(--cream-2);list-style:none}
+.kt-chat-setup>summary::-webkit-details-marker{display:none}
+.kt-chat-setup>summary::before{content:"\25B8";display:inline-block;margin-right:8px;transform:translateY(-1px)}
+.kt-chat-setup[open]>summary::before{content:"\25BE"}
+.kt-chat-setup-inner{padding:16px 18px 20px;display:grid;gap:14px}
+.kt-chat-field{display:grid;gap:6px}
+.kt-chat-field label{font-size:13px;font-weight:700;color:var(--ink)}
+.kt-chat-field input[type=password],.kt-chat-field input[type=text],.kt-chat-field select{
+  width:100%;padding:11px 13px;border:1px solid var(--line);border-radius:var(--r-sm);background:#fff;
+  font:inherit;font-size:14px;color:var(--ink)}
+.kt-chat-field small{color:var(--muted);font-size:12.5px;line-height:1.55}
+.kt-chat-check{display:flex;gap:9px;align-items:flex-start;font-size:13px;color:var(--muted)}
+.kt-chat-check input{margin-top:3px}
+
+.kt-chat-log{margin-top:18px;border:1px solid var(--line);border-radius:var(--r-lg);background:#fff;
+  padding:16px;min-height:150px;max-height:min(58vh,560px);overflow-y:auto;display:grid;gap:12px}
+.kt-chat-hint{color:var(--muted);font-size:14px;margin:0}
+.kt-msg{border-radius:var(--r-md);padding:12px 14px;max-width:min(92%,720px)}
+.kt-msg.is-user{background:var(--cream-2);justify-self:end}
+.kt-msg.is-bot{background:#fff;border:1px solid var(--line);justify-self:start}
+.kt-msg-head{display:flex;gap:10px;align-items:center;margin-bottom:6px}
+.kt-msg-who{font-size:11.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.kt-msg-body{font-size:14.5px;line-height:1.65;color:var(--ink);white-space:pre-wrap;word-break:break-word}
+.kt-mini{border:1px solid var(--line);background:#fff;border-radius:999px;padding:5px 11px;font:inherit;font-size:12px;
+  font-weight:600;color:var(--muted);cursor:pointer;transition:border-color .15s,color .15s}
+.kt-mini:hover{border-color:var(--line-strong);color:var(--ink)}
+
+.kt-chat-status{margin:12px 0 0;font-size:13.5px;line-height:1.55;min-height:1px}
+.kt-chat-status.is-err{color:#b4232a;font-weight:600}
+.kt-chat-status.is-ok{color:#1d6e3f;font-weight:600}
+.kt-chat-status.is-busy{color:var(--muted)}
+
+.kt-chat-form{margin-top:14px;display:grid;gap:10px}
+.kt-chat-form textarea{width:100%;min-height:104px;resize:vertical;padding:13px 15px;border:1px solid var(--line);
+  border-radius:var(--r-md);background:#fff;font:inherit;font-size:14.5px;line-height:1.6;color:var(--ink)}
+.kt-chat-form textarea:focus{outline:2px solid var(--yellow);outline-offset:1px}
+.kt-chat-actions{display:flex;flex-wrap:wrap;gap:9px;align-items:center}
+.kt-chat-actions .btn{min-width:134px}
+
+.kt-prompt-chips{margin-top:20px;display:grid;gap:9px}
+.kt-prompt-chips p{margin:0;font-size:12.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.kt-prompt-chips button{text-align:left;border:1px solid var(--line);background:#fff;border-radius:var(--r-md);
+  padding:11px 14px;font:inherit;font-size:13.5px;color:var(--ink);cursor:pointer}
+.kt-prompt-chips button:hover{border-color:var(--line-strong);background:var(--cream-2)}
+
+@media(max-width:700px){
+  .kt-chat-log{max-height:none;padding:13px}
+  .kt-msg{max-width:100%}
+  .kt-chat-actions .btn{flex:1 1 100%}
+}

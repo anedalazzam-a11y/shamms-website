@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Shamms">
+  <circle cx="32" cy="32" r="32" fill="#FFFFFF"/>
+  <path d="M40 24 A8 8 0 1 0 32 32 A8 8 0 1 0 40 40" fill="none"
+        stroke="#FF6B35" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

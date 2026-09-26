@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<script>document.documentElement.className += ' js';</script>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shamms — Prompts, die im Betrieb funktionieren</title>
+<meta name="description" content="Vier deutschsprachige Prompt-Bibliotheken für Marketing, Vertrieb, E-Commerce und Büro. Sofort-Download, Einmalkauf, kein Abo nötig.">
+<link rel="icon" href="img/favicon.svg">
+<meta name="description" content="Praxis-Prompt-Bibliotheken für Marketing, Vertrieb, E-Commerce und Verwaltung. Sofort einsetzbar, deutschsprachig, ohne Abo. Jetzt als PDF-Download kaufen.">
+<link rel="canonical" href="https://shamms.de/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Shamms">
+<meta property="og:locale" content="de_DE">
+<meta property="og:title" content="Shamms – KI-Prompt-Bibliotheken für deutsche Unternehmen">
+<meta property="og:description" content="Fertige, deutschsprachige Prompt-Bibliotheken für Marketing, Vertrieb, E-Commerce & Verwaltung – sofort einsetzbar, als PDF-Download, ohne Abo.">
+<meta property="og:url" content="https://shamms.de/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Shamms – KI-Prompt-Bibliotheken für deutsche Unternehmen">
+<meta name="twitter:description" content="Fertige, deutschsprachige Prompt-Bibliotheken für Marketing, Vertrieb, E-Commerce & Verwaltung – sofort einsetzbar, als PDF-Download, ohne Abo.">
+<meta property="og:image" content="https://shamms.de/img/og-shamms-2026.jpg">
+<meta property="og:image:alt" content="Shamms – Komplettpaket – mit Premium">
+<meta name="twitter:image" content="https://shamms.de/img/og-shamms-2026.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --yellow:#FCD94A; --yellow-deep:#FDC302;
+  --ink:#161415; --ink-2:#242223; --ink-3:#2D2B2C;
+  --muted:#6C6A69; --paper:#FFFFFF; --cream:#F4F1EA; --cream-2:#FAF9F6;
+  --line:rgba(22,20,21,.09); --line-strong:rgba(22,20,21,.16);
+  --red:#FF4D5A;
+  --r-sm:12px; --r-md:16px; --r-lg:24px; --r-xl:32px;
+  --shadow-s:0 1px 2px rgba(22,20,21,.05), 0 6px 16px -8px rgba(22,20,21,.12);
+  --shadow-m:0 2px 6px rgba(22,20,21,.06), 0 18px 40px -18px rgba(22,20,21,.22);
+  --shadow-l:0 30px 70px -30px rgba(22,20,21,.35);
+  --maxw:1180px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:94px}
+section[id]{scroll-margin-top:94px}
+@media(max-width:700px){html{scroll-padding-top:82px}section[id]{scroll-margin-top:82px}}
+body{
+  font-family:Roboto,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+  color:var(--ink); background:var(--cream);
+  -webkit-font-smoothing:antialiased; overflow-x:hidden;
+  background-image:radial-gradient(rgba(22,20,21,.075) 1px, transparent 1px);
+  background-size:22px 22px;
+}
+img{max-width:100%;height:auto;display:block}
+html,body{max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+.wrap{width:100%;max-width:var(--maxw);margin:0 auto;padding:0 clamp(16px,4.2vw,20px)}
+.mono{font-family:"Roboto Mono",ui-monospace,SFMono-Regular,Menlo,monospace}
+.eyebrow{font-family:"Roboto Mono",monospace;font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+
+/* ---------- nav ---------- */
+.nav{position:fixed;top:12px;left:0;right:0;z-index:80;display:flex;justify-content:center;padding:0 10px;pointer-events:none}
+.nav::before{content:"";position:absolute;left:0;right:0;top:-14px;height:88px;pointer-events:none;
+  background:linear-gradient(rgba(244,241,234,.995),rgba(244,241,234,.94) 55%,rgba(244,241,234,0));
+  opacity:0;transition:opacity .3s}
+.nav.stuck::before{opacity:1}
+.nav-inner{
+  pointer-events:auto;width:100%;max-width:var(--maxw);display:flex;align-items:center;gap:14px;
+  background:rgba(22,20,21,.92); backdrop-filter:blur(14px) saturate(140%);
+  border-radius:999px;padding:9px 6px 9px 18px;color:#fff;
+  box-shadow:var(--shadow-m);transition:padding .35s cubic-bezier(.2,.7,.3,1), transform .35s;
+}
+.nav.stuck .nav-inner{padding:7px 10px 7px 14px}
+.nav-brand{display:flex;align-items:center;gap:9px;font-weight:900;letter-spacing:-.01em;font-size:17px;flex:0 0 auto}
+.nav-glyph{color:var(--yellow);font-family:"Roboto Mono",monospace;font-weight:500}
+.nav-links{display:flex;gap:4px;margin-left:auto}
+.nav-links a{padding:9px 13px;border-radius:999px;font-size:14px;color:rgba(255,255,255,.78);transition:background .22s,color .22s}
+.nav-links a:hover{background:rgba(255,255,255,.1);color:#fff}
+.nav-cta{display:flex;align-items:center;gap:10px;margin-left:auto;flex:0 0 auto}
+@media(min-width:901px){.nav-cta{margin-left:0}}
+.nav-burger{width:38px;height:38px;border-radius:999px;border:1.5px solid rgba(255,255,255,.35);display:grid;place-items:center;gap:4px}
+.nav-burger span{display:block;width:15px;height:1.6px;background:#fff;border-radius:2px}
+@media(max-width:900px){.nav-links{display:none}}
+@media(max-width:480px){
+  .nav-inner{gap:10px;padding:8px 5px 8px 15px}
+  .nav-brand{font-size:16px;gap:7px}
+  .nav-cta{gap:9px}
+  .nav-cta .btn-sm{padding:10px 14px;font-size:13.5px}
+  .nav-burger{width:36px;height:36px;flex:0 0 auto}
+}
+@media(max-width:370px){
+  .nav-cta .btn-sm{padding:9px 11px;font-size:12.5px}
+  .nav-brand{font-size:15px}
+  .nav-burger{width:33px;height:33px}
+}
+
+/* ---------- buttons ---------- */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;border-radius:999px;
+  padding:15px 26px;font-weight:700;font-size:15.5px;letter-spacing:-.01em;
+  transition:transform .18s cubic-bezier(.2,.7,.3,1), box-shadow .25s, background .25s, color .25s;
+  will-change:transform}
+.btn:active{transform:translateY(1px) scale(.99)}
+.btn-y{background:var(--yellow);color:var(--ink);box-shadow:0 10px 26px -12px rgba(253,195,2,.9)}
+.btn-y:hover{background:var(--yellow-deep);transform:translateY(-2px);box-shadow:0 16px 34px -14px rgba(253,195,2,1)}
+.btn-d{background:var(--ink);color:#fff}
+.btn-d:hover{background:var(--ink-3);transform:translateY(-2px)}
+.btn-o{border:1.5px solid var(--line-strong);background:rgba(255,255,255,.7)}
+.btn-o:hover{border-color:var(--ink);transform:translateY(-2px)}
+.btn-sm{padding:11px 18px;font-size:14px}
+.btn-full{width:100%}
+.arrow{transition:transform .25s}
+.btn:hover .arrow{transform:translateX(4px)}
+
+/* ---------- hero ---------- */
+.hero{padding:calc(88px + env(safe-area-inset-top,0px)) 0 clamp(26px,4.5vw,42px);position:relative}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,4vw,52px);align-items:center}
+@media(max-width:980px){
+  .hero{padding-top:calc(80px + env(safe-area-inset-top,0px))}
+  .hero-grid{grid-template-columns:1fr;gap:clamp(14px,3.4vw,22px)}
+}
+.pill{display:inline-flex;align-items:center;gap:9px;padding:7px 14px 7px 9px;border-radius:999px;
+  background:#fff;border:1px solid var(--line);box-shadow:var(--shadow-s);font-size:13px;font-weight:500}
+.pill i{width:7px;height:7px;border-radius:99px;background:var(--yellow-deep);box-shadow:0 0 0 4px rgba(252,217,74,.35);flex:0 0 auto}
+@media(max-width:560px){.pill{font-size:12px;padding:6px 12px 6px 9px;max-width:100%}}
+h1{font-size:clamp(31px,8.2vw,68px);line-height:1;letter-spacing:-.032em;font-weight:900;
+  margin:clamp(14px,2.6vw,20px) 0 clamp(13px,2.4vw,18px);overflow-wrap:break-word}
+h1 .hl{background:linear-gradient(transparent 62%, var(--yellow) 62%);padding:0 .06em}
+.lede{font-size:clamp(16px,1.6vw,19px);line-height:1.6;color:var(--muted);max-width:56ch}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap;margin:clamp(20px,3.4vw,28px) 0 clamp(18px,3.2vw,26px)}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;border-top:1px solid var(--line);padding-top:clamp(14px,2.4vw,20px)}
+.hero-stats div{font-size:13.5px;color:var(--muted)}
+.hero-stats b{display:block;font-size:22px;font-weight:900;color:var(--ink);letter-spacing:-.02em;margin-bottom:3px}
+@media(max-width:620px){.hero-stats{grid-template-columns:repeat(2,1fr);gap:18px 12px}}
+.hero-art{position:relative;width:100%;max-width:min(100%,460px);margin:0 auto}
+.hero-art img{width:100%;height:auto;max-width:100%;object-fit:contain;
+  border-radius:clamp(20px,3.4vw,32px);border:1px solid var(--line);
+  box-shadow:var(--shadow-l);background:#fff}
+@media(min-width:981px){.hero-art{max-width:520px;margin:0 0 0 auto}}
+.float{animation:float 7s ease-in-out infinite}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+.hero-badge{
+  position:absolute;bottom:-14px;left:-10px;background:#fff;border:1px solid var(--line);
+  border-radius:var(--r-md);padding:12px 16px;box-shadow:var(--shadow-m);font-size:13px;font-weight:500;z-index:2}
+.hero-badge b{display:block;font-size:19px;font-weight:900;letter-spacing:-.02em}
+@media(max-width:980px){
+  .hero-badge{position:static;left:auto;bottom:auto;display:flex;width:max-content;
+    margin:12px auto 0;padding:10px 15px}
+  .hero-badge b{display:inline;font-size:17px}
+}
+.art-frame{position:relative}
+.tool-tiles{display:flex;flex-wrap:wrap;gap:9px;justify-content:center;
+  max-width:362px;margin:18px auto 0}
+.tiles-label{width:100%;text-align:center;font-family:"Roboto Mono",monospace;font-size:11px;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--muted);margin-bottom:1px}
+.tool-tile{display:inline-flex;align-items:center;gap:9px;background:#fff;border:1px solid var(--line);
+  border-radius:14px;padding:7px 13px 7px 8px;box-shadow:var(--shadow-s);
+  font-size:13px;font-weight:600;letter-spacing:-.01em;color:var(--ink);
+  transition:transform .25s cubic-bezier(.2,.7,.3,1), box-shadow .25s}
+.tool-tile:hover{transform:translateY(-3px);box-shadow:var(--shadow-m)}
+.tool-tile .tt-ic{display:grid;place-items:center;width:30px;height:30px;border-radius:9px;
+  background:var(--cream);border:1px solid var(--line);flex:0 0 auto}
+.tool-tile svg{width:19px;height:19px;display:block}
+@media(min-width:981px){
+  .tool-tiles{gap:10px;margin-top:22px}
+  .tool-tile{font-size:13.5px;padding:8px 15px 8px 9px}
+  .tool-tile .tt-ic{width:32px;height:32px}
+}
+
+/* ---------- marquee ---------- */
+.marquee{margin:clamp(30px,5vw,52px) 0 8px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  background:rgba(255,255,255,.55);overflow:hidden;padding:15px 0}
+.marquee-track{display:flex;gap:38px;width:max-content;animation:slide 34s linear infinite}
+.marquee:hover .marquee-track{animation-play-state:paused}
+@keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.marquee-item{display:flex;align-items:center;gap:12px;font-family:"Roboto Mono",monospace;
+  font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.marquee-item::before{content:"";width:5px;height:5px;border-radius:99px;background:var(--yellow-deep)}
+
+/* ---------- sections ---------- */
+section{padding:clamp(48px,6.5vw,74px) 0}
+.sec-head{max-width:720px;margin-bottom:34px}
+h2{font-size:clamp(26px,3.6vw,46px);line-height:1.05;letter-spacing:-.03em;font-weight:900;margin:12px 0 12px;overflow-wrap:break-word}
+h3{font-size:20px;letter-spacing:-.02em;font-weight:900}
+.sub{color:var(--muted);font-size:16.5px;line-height:1.62}
+</style>
+<style>
+
+/* ---- Erklärfilm ---- */
+.film{margin:0 auto;max-width:1060px;border-radius:clamp(18px,3vw,30px);overflow:hidden;
+  border:1px solid var(--line);box-shadow:var(--shadow-l);background:#fff;line-height:0}
+.film video{width:100%;height:auto;display:block;background:#161415}
+.film-cta{display:flex;justify-content:center;margin-top:clamp(20px,3vw,30px)}
+/* ---------- cards ---------- */
+.grid{display:grid;gap:20px}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g2{grid-template-columns:repeat(2,1fr)}
+.g4{grid-template-columns:repeat(4,1fr)}
+@media(max-width:980px){.g3{grid-template-columns:repeat(2,1fr)}.g4{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:640px){.g3,.g2,.g4{grid-template-columns:1fr}}
+.span2{grid-column:span 2}
+@media(max-width:700px){.span2{grid-column:auto}}
+
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;
+  display:flex;flex-direction:column;box-shadow:var(--shadow-s);
+  transition:transform .35s cubic-bezier(.2,.7,.3,1), box-shadow .35s, border-color .3s}
+.card:hover{transform:translateY(-6px);box-shadow:var(--shadow-m);border-color:var(--line-strong)}
+.card-art{position:relative;aspect-ratio:3/2;overflow:hidden;background:var(--cream-2);
+  display:grid;place-items:center;border-bottom:1px solid var(--line)}
+.card-art img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.3,1)}
+.card:hover .card-art img{transform:scale(1.045)}
+.card-art::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background-image:radial-gradient(rgba(22,20,21,.09) 1px,transparent 1px);background-size:18px 18px;opacity:.5}
+.card-body{padding:20px 20px 22px;display:flex;flex-direction:column;flex:1}
+.card-form{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.tag{font-family:"Roboto Mono",monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;
+  padding:5px 9px;border-radius:999px;background:rgba(22,20,21,.05);color:var(--muted)}
+.tag-y{background:rgba(252,217,74,.35);color:#6b5600}
+.card p{color:var(--muted);font-size:14.5px;line-height:1.55;margin:7px 0 0}
+.card-foot{margin-top:auto;padding-top:18px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.price{font-weight:900;font-size:22px;letter-spacing:-.025em}
+.price small{font-weight:500;font-size:12.5px;color:var(--muted);letter-spacing:0;display:block}
+
+/* dark feature card */
+.card-dark{background:var(--ink);border-color:var(--ink);color:#fff;position:relative}
+.card-dark .card-art{background:var(--ink-2);border-color:rgba(255,255,255,.1)}
+.card-dark .card-art::after{background-image:radial-gradient(rgba(255,255,255,.14) 1px,transparent 1px);opacity:.7}
+.card-dark p{color:rgba(255,255,255,.66)}
+.card-dark .price small{color:rgba(255,255,255,.6)}
+.card-dark .tag{background:rgba(255,255,255,.1);color:rgba(255,255,255,.75)}
+.card-dark::before{content:"";position:absolute;inset:0;pointer-events:none;border-radius:var(--r-lg);
+  background:radial-gradient(70% 90% at 82% -10%, rgba(253,195,2,.22), transparent 62%)}
+.dark-art{position:relative;border-top:1px solid rgba(255,255,255,.1);background:var(--ink-2);overflow:hidden}
+.dark-art img{width:100%;height:auto;display:block}
+.feature{display:grid;grid-template-columns:1fr 1fr;align-items:stretch}
+.feature .card-art{aspect-ratio:auto;height:100%;min-height:320px}
+@media(max-width:820px){.feature{grid-template-columns:1fr}.feature .card-art{min-height:220px}}
+.feature ul{list-style:none;margin:16px 0 0;display:grid;gap:9px}
+.feature li{display:flex;gap:10px;font-size:14.5px;color:rgba(255,255,255,.82);line-height:1.5}
+.check{flex:0 0 auto;width:19px;height:19px;border-radius:6px;background:rgba(252,217,74,.18);
+  display:grid;place-items:center;color:var(--yellow);font-size:11px;font-weight:900;margin-top:1px}
+
+/* ---------- membership ---------- */
+.tier{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:24px;box-shadow:var(--shadow-s);
+  transition:transform .35s cubic-bezier(.2,.7,.3,1), box-shadow .35s}
+.tier:hover{transform:translateY(-6px);box-shadow:var(--shadow-m)}
+.tier.pick{background:var(--ink);color:#fff;border-color:var(--ink)}
+.tier.pick p,.tier.pick .price small{color:rgba(255,255,255,.66)}
+.tier.pick li{color:rgba(255,255,255,.82)}
+.tier ul{list-style:none;display:grid;gap:9px;margin:16px 0 22px}
+.tier li{display:flex;gap:9px;font-size:14.5px;color:var(--muted);line-height:1.5}
+.tier li::before{content:"✓";color:var(--yellow-deep);font-weight:900}
+
+/* ---------- dark band ---------- */
+.band{background:var(--ink);color:#fff;border-radius:var(--r-xl);overflow:hidden;
+  display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:30px;padding:0 0 0 46px;
+  background-image:radial-gradient(rgba(255,255,255,.12) 1px,transparent 1px);background-size:22px 22px}
+.band .sub{color:rgba(255,255,255,.66)}
+.band-art{padding:26px 26px 26px 0}
+.band-art img{border-radius:var(--r-lg)}
+@media(max-width:860px){.band{grid-template-columns:1fr;padding:30px 26px 26px}.band-art{padding:0}}
+
+/* ---------- steps ---------- */
+.step{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);padding:24px;box-shadow:var(--shadow-s)}
+.step-n{font-family:"Roboto Mono",monospace;font-size:12px;color:var(--muted);letter-spacing:.12em}
+.step-n b{display:block;font-size:30px;color:var(--ink);letter-spacing:-.03em;font-weight:900;margin-bottom:12px}
+
+/* ---------- services ---------- */
+.svc{background:#fff;border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;display:flex;flex-direction:column;
+  box-shadow:var(--shadow-s);transition:transform .35s cubic-bezier(.2,.7,.3,1), box-shadow .35s}
+.svc:hover{transform:translateY(-6px);box-shadow:var(--shadow-m)}
+.svc img{aspect-ratio:3/2;object-fit:cover;border-bottom:1px solid var(--line)}
+.svc-body{padding:20px;display:flex;flex-direction:column;flex:1}
+.svc-meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.meta{font-size:12px;color:var(--muted);background:rgba(22,20,21,.045);border-radius:999px;padding:5px 10px}
+
+/* ---------- timeline ---------- */
+.tl{position:relative;margin-top:8px}
+.tl::before{content:"";position:absolute;left:9px;top:8px;bottom:8px;width:1.5px;background:linear-gradient(var(--yellow),rgba(22,20,21,.12))}
+.tl-row{display:flex;gap:20px;padding:13px 0;align-items:flex-start;position:relative}
+.tl-dot{flex:0 0 20px;width:20px;height:20px;border-radius:99px;background:#fff;border:2px solid var(--ink);
+  display:grid;place-items:center;z-index:1;margin-top:1px}
+.tl-dot i{width:7px;height:7px;border-radius:99px;background:var(--yellow-deep)}
+.tl-y{font-family:"Roboto Mono",monospace;font-size:12px;color:var(--muted);min-width:84px;padding-top:3px}
+.tl-t{font-weight:700;font-size:15.5px;letter-spacing:-.01em}
+.tl-s{font-size:13.5px;color:var(--muted);margin-top:2px}
+
+/* ---------- faq ---------- */
+.faq{border-top:1px solid var(--line)}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-q{width:100%;display:flex;align-items:center;justify-content:space-between;gap:18px;
+  padding:22px 4px;text-align:left;font-weight:700;font-size:17px;letter-spacing:-.015em}
+.faq-q:hover{color:var(--ink-3)}
+.faq-ic{flex:0 0 30px;width:30px;height:30px;border-radius:99px;border:1.5px solid var(--line-strong);
+  display:grid;place-items:center;transition:transform .35s, background .3s, border-color .3s}
+.faq-item.open .faq-ic{background:var(--ink);border-color:var(--ink);color:#fff;transform:rotate(45deg)}
+.faq-a{overflow:hidden;max-height:0;transition:max-height .42s cubic-bezier(.2,.7,.3,1)}
+.faq-a p{color:var(--muted);font-size:15.5px;line-height:1.65;padding:0 4px 24px;max-width:78ch}
+
+/* ---------- footer ---------- */
+footer{background:var(--ink);color:#fff;padding:60px 0 40px;margin-top:20px;
+  background-image:radial-gradient(rgba(255,255,255,.1) 1px,transparent 1px);background-size:22px 22px}
+.f-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:28px}
+@media(max-width:820px){.f-grid{grid-template-columns:repeat(2,1fr)}}
+footer h4{font-family:"Roboto Mono",monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:14px}
+footer a{display:block;color:rgba(255,255,255,.78);font-size:14px;padding:5px 0;transition:color .2s}
+footer a:hover{color:var(--yellow)}
+.f-bottom{margin-top:40px;padding-top:22px;border-top:1px solid rgba(255,255,255,.14);
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;font-size:12.5px;color:rgba(255,255,255,.5)}
+
+/* ---- reference-style illustrations ---- */
+.tier-art{display:grid;place-items:center;margin:2px 0 16px}
+.illu-tag{width:118px;height:118px}
+.illu-circle{width:120px;height:120px}
+.logo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);
+  aspect-ratio:3/2;border-bottom:1px solid var(--line);overflow:hidden}
+.lg-tile{background:var(--cream-2);display:grid;place-items:center}
+.lg-tile svg{width:34px;height:34px;opacity:.42}
+.lg-crown{background:#fff}
+.lg-crown svg{width:40px;height:40px;opacity:1}
+/* ---------- reveal ---------- */
+.js .rv{opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.2,.7,.3,1), transform .7s cubic-bezier(.2,.7,.3,1)}
+.js .rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none}.float{animation:none}.marquee-track{animation:none}}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://shamms.de/#organization",
+      "name": "Shamms",
+      "url": "https://shamms.de/",
+      "email": "kontakt@shamms.de",
+      "logo": "https://shamms.de/img/logo.png"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://shamms.de/#website",
+      "url": "https://shamms.de/",
+      "name": "Shamms",
+      "inLanguage": "de",
+      "publisher": {
+        "@id": "https://shamms.de/#organization"
+      }
+    },
+    {
+      "@type": "ItemList",
+      "@id": "https://shamms.de/#products",
+      "name": "Unsere Prompt-Bibliotheken",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "Product",
+            "name": "Marketing",
+            "description": "Content, Social Media, SEO & Kampagnen in Bestform.",
+            "image": "https://shamms.de/img/cover-marketing.webp",
+            "url": "https://shamms.de/#p-marketing",
+            "offers": {
+              "@type": "Offer",
+              "price": "49.00",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock",
+              "url": "https://shamms.lemonsqueezy.com/checkout/buy/6b2bb687-4c1e-4ff0-a36b-5658bfbbd3c5?locale=de"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "Product",
+            "name": "Vertrieb & Kundenservice",
+            "description": "Überzeugende Kommunikation mit Kunden & Interessenten.",
+            "image": "https://shamms.de/img/cover-vertrieb.webp",
+            "url": "https://shamms.de/#p-vertrieb",
+            "offers": {
+              "@type": "Offer",
+              "price": "49.00",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock",
+              "url": "https://shamms.lemonsqueezy.com/checkout/buy/eb5de6d0-793b-4e6d-b9f0-8db89e090a95?locale=de"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "Product",
+            "name": "E-Commerce",
+            "description": "Produkttexte & Shop-SEO, die verkaufen.",
+            "image": "https://shamms.de/img/cover-ecommerce.webp",
+            "url": "https://shamms.de/#p-ecommerce",
+            "offers": {
+              "@type": "Offer",
+              "price": "49.00",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock",
+              "url": "https://shamms.lemonsqueezy.com/checkout/buy/d7a69c2a-15db-4ab9-84ff-c2222d1e06a6?locale=de"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "Product",
+            "name": "Büro & Verwaltung",
+            "description": "Tagesgeschäft schneller erledigt – vom Protokoll bis zur Mahnung.",
+            "image": "https://shamms.de/img/cover-buero.webp",
+            "url": "https://shamms.de/#p-buero",
+            "offers": {
+              "@type": "Offer",
+              "price": "39.00",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock",
+              "url": "https://shamms.lemonsqueezy.com/checkout/buy/456c503b-7f55-4a57-8a95-86a866ebddc0?locale=de"
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 5,
+          "item": {
+            "@type": "Product",
+            "name": "Komplettpaket – mit Premium",
+            "description": "Alles für den KI-Start: 4 Bibliotheken + KI-Einführungs-Playbook für KMU (5 S.) + 10 Master-Systeme.",
+            "image": "https://shamms.de/img/cover-komplettpaket.webp",
+            "url": "https://shamms.de/#p-komplett",
+            "offers": {
+              "@type": "Offer",
+              "price": "199.00",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock",
+              "url": "https://shamms.lemonsqueezy.com/checkout/buy/63e6f947-6a51-405a-94bb-4ec865fb76f7?locale=de"
+            }
+          }
+        },
+        {
+          "position": 6,
+          "item": {
+            "@type": "Product",
+            "name": "Shamms Updates-Club (Mitgliedschaft)",
+            "description": "Monatliche Anpassung der Bibliotheken an aktuelles Modellverhalten, 5 neue exklusive Prompts pro Monat, alle 2 Monate eine neue Canva- oder Notion-Vorlage, Model-Update-Hinweise. Jederzeit kündbar.",
+            "image": "https://shamms.de/img/cover-updates-club.webp",
+            "url": "https://shamms.de/#m-updates-club",
+            "offers": {
+              "@type": "Offer",
+              "price": "19.00",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock",
+              "url": "https://shamms.lemonsqueezy.com/checkout/buy/478bc4e2-2860-450f-af73-ff91e11b9441?locale=de",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "19.00",
+                "priceCurrency": "EUR",
+                "billingDuration": "P1M",
+                "billingIncrement": 1
+              }
+            }
+          }
+        },
+        {
+          "position": 7,
+          "item": {
+            "@type": "Product",
+            "name": "Shamms Pro-Membership (Mitgliedschaft)",
+            "description": "Alles aus dem Updates-Club, plus 20 neue exklusive Prompts pro Monat, monatlich ein neues Tool oder Master-System-Prompt, früher Zugang zu neuen Produkten und vorrangiger Support. Jederzeit kündbar.",
+            "image": "https://shamms.de/img/cover-pro-membership.webp",
+            "url": "https://shamms.de/#m-pro-membership",
+            "offers": {
+              "@type": "Offer",
+              "price": "99.00",
+              "priceCurrency": "EUR",
+              "availability": "https://schema.org/InStock",
+              "url": "https://shamms.lemonsqueezy.com/checkout/buy/1156c8e5-9dcf-453c-9fb6-3f0eae4fdba3?locale=de",
+              "priceSpecification": {
+                "@type": "UnitPriceSpecification",
+                "price": "99.00",
+                "priceCurrency": "EUR",
+                "billingDuration": "P1M",
+                "billingIncrement": 1
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://shamms.de/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Was erhalte ich genau – und in welchem Format?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Deine Prompt-Bibliothek als PDF-Datei (20–25 Prompts je nach Produkt) inklusive Anleitung zur Anwendung. Die Prompts sind als System-/Anweisungstexte formuliert – du kopierst sie, ersetzt die Stellen in [ECKIGEN KLAMMERN] und fügst sie zusammen mit deiner Aufgabe in dein KI-Tool ein."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wann und wie bekomme ich mein Produkt?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Sofort nach erfolgreicher Zahlung wirst du auf die Bestätigungsseite von Lemon Squeezy weitergeleitet – dort und in der E-Mail findest du deinen Download-Link. Beleg und Rechnung sendet Lemon Squeezy (Merchant of Record) ebenfalls an deine E-Mail-Adresse."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Wie funktioniert der Download?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Du öffnest den Download-Link auf der Bestätigungsseite von Lemon Squeezy oder in der Bestell-E-Mail und speicherst die PDF-Datei auf deinem Gerät. Der Link bleibt dauerhaft gültig – du kannst die Datei also jederzeit erneut herunterladen."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Für welche KI-Tools sind die Prompts geeignet?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Die Bibliotheken funktionieren mit ChatGPT, Claude und Gemini sowie den meisten anderen großen Sprachmodellen. Die Prompts sind als System-/Anweisungstexte formuliert und werden zusammen mit deiner Aufgabe eingefügt."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kann ich die Prompts kommerziell nutzen?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. Mit dem Kauf erhältst du eine einfache, nicht übertragbare Lizenz zur Nutzung im eigenen Unternehmen – auch für Kundenkommunikation und eigene Inhalte. Nicht erlaubt ist die Weiterveräußerung, Weitergabe oder öffentliche Verbreitung der Bibliothek selbst (z. B. Upload auf Sharing-Plattformen). Details in den AGB."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Darf ich die Prompts bearbeiten und anpassen?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. Die Prompts sind als Arbeitsgrundlage gedacht – du darfst sie für deinen eigenen Bedarf anpassen, ergänzen und in deinen Arbeitsablauf einbauen. Verboten ist nur die Weitergabe oder der Weiterverkauf der Datei selbst."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Gibt es Updates – und was passiert nach 12 Monaten?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Im Komplettpaket ist der Updates-Club 12 Monate lang enthalten: monatliche Anpassungen an aktuelle Modellversionen, 5 neue exklusive Prompts und ein Model-Update-Hinweis – alles per E-Mail. Es entsteht kein Abo, und nichts verlängert sich automatisch. Nach den 12 Monaten kannst du freiwillig für 19 €/Monat weitermachen (jederzeit kündbar) – die Mitgliedschaften sind optional und monatlich kündbar. Entscheidest du dich dagegen, bleiben dir alle Bibliotheken und alles, was du bis dahin erhalten hast, dauerhaft. Ein Upgrade von einzelnen Bibliotheken auf das Komplettpaket ist per E-Mail möglich – die Differenz wird verrechnet."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Welche Zahlungsarten werden angeboten?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Kreditkarte (Visa/Mastercard) und PayPal. Die Zahlung läuft über Lemon Squeezy (Merchant of Record). Die Zahlungsdaten werden im Checkout von Lemon Squeezy verarbeitet – Details dazu stehen in der Datenschutzerklärung."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Erhalte ich eine Rechnung?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. Zu jedem Kauf stellt Lemon Squeezy als Zahlungsdienstleister automatisch eine Rechnung aus und sendet sie an deine E-Mail-Adresse."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Gibt es Support?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. Bei Fragen zu Download, Lizenz oder Anwendung hilft dir unser E-Mail-Support weiter – die Kontaktdaten findest du im Impressum."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Was tun bei Problemen mit dem Download?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Öffne den Download-Link aus der Bestell-E-Mail von Lemon Squeezy erneut – er bleibt gültig. Falls er nicht funktioniert, schreib uns einfach eine E-Mail (Kontakt im Impressum) – wir stellen dir die Datei direkt zu."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Kann ich mein Geld zurückbekommen?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Digitale Inhalte sind vom gesetzlichen Widerrufsrecht ausgenommen, wenn du beim Kauf ausdrücklich zustimmst und bestätigst, dass dein Widerrufsrecht mit Beginn der Bereitstellung erlischt (§ 356 Abs. 6 BGB). Diese Zustimmung holen wir direkt auf dieser Seite ab: Vor jedem Kauf musst du das Kästchen zum Widerrufsrecht bestätigen. Bei technischen Problemen oder Irrtümern beim Kauf findest du im Impressum unsere Kontaktdaten – wir finden gemeinsam eine faire Lösung."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Sind die Preise inklusive Mehrwertsteuer?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Ja. Alle Preise sind Endpreise in Euro inklusive gesetzlicher Umsatzsteuer. Die Steuer wird von Lemon Squeezy als Merchant of Record abgeführt – bei Käufern im EU-Ausland nach dem dortigen Steuersatz."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Welches Produkt passt zu mir?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Wenn du hauptsächlich einen Bereich abdeckst (z. B. nur Marketing), reicht die passende Einzelbibliothek. Für den vollständigen KI-Start im Betrieb ist das Komplettpaket gedacht: alle vier Bibliotheken plus KI-Einführungs-Playbook für KMU (5 S.), 10 Master-System-Prompts und 12 Monate Updates-Club inklusive – die Premium-Inhalte gibt es nur in diesem Paket. Eine Übersicht findest du im Produktvergleich."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Worin unterscheiden sich Updates-Club und Pro-Membership?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Der Updates-Club (19 €/Monat) hält deine bestehenden Bibliotheken aktuell: monatliche Anpassungen an neue Modellversionen, 5 neue exklusive Prompts pro Monat, alle 2 Monate eine neue Canva- oder Notion-Vorlage und Model-Update-Hinweise. Die Pro-Membership (99 €/Monat) ist für Profis und Agenturen gedacht: alles aus dem Updates-Club plus 20 neue Prompts pro Monat, jeden Monat ein neues Tool oder Master-System-Prompt, früherer Zugang zu neuen Produkten und vorrangiger Support. Beide laufen monatlich und sind jederzeit kündbar – ohne Vertragsbindung. Im Komplettpaket sind die ersten 12 Monate des Updates-Club bereits enthalten."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<script src="js/shamms-track.js?v=20260921"></script>
+<script src="js/site.js?v=20260921" defer></script>
+<style>
+p a, li a, .a a, .note a, .ba-box a, .cb-text a, .foot-note a{text-decoration: underline;
+  text-underline-offset: 2px;}
+footer :focus-visible,
+.cta-band :focus-visible,
+#cb-banner :focus-visible{outline-color: var(--focus-inv);}
+/* ============================================================
+   CONSENT-BANNER (Meta-Pixel)
+   ============================================================ */
+#cb-banner{position: fixed; left: 0; right: 0; bottom: 0; z-index: 99999;
+  background: var(--ink); color: #fff;
+  font-size: 15px; line-height: 1.55;
+  box-shadow: 0 -8px 30px rgba(0, 0, 0, .4);
+  border-top: 3px solid var(--yellow);}
+#cb-banner[hidden]{display: none;}
+/* kein Aufblitzen fuer Wiederkehrer */
+.cb-inner{max-width: 960px; margin: 0 auto; padding: 20px; display: flex; flex-wrap: wrap; gap: 16px; align-items: center; justify-content: space-between;}
+.cb-text{flex: 1 1 520px;}
+.cb-text strong{color: var(--yellow);}
+.cb-text a{color: var(--yellow);}
+.cb-btns{display: flex; gap: 12px; flex-wrap: wrap;}
+.cb-btn{border: 0; cursor: pointer; font-family: inherit;
+  font-size: 15px; font-weight: 700;
+  padding: 14px 26px; border-radius: 12px;
+  min-width: 150px; min-height: 46px;}
+.cb-accept{background: var(--yellow); color: var(--ink);}
+.cb-accept:hover{background: var(--yellow-deep);}
+.cb-decline{background: transparent; color: #fff; box-shadow: inset 0 0 0 2px var(--yellow);}
+.cb-decline:hover{background: rgba(242, 169, 59, .12);}
+/* Banner so kompakt wie moeglich halten: er darf den Hero nicht erdruecken.
+     Der Text bleibt unveraendert, nur Abstaende/Schriftgroesse. */
+  .cb-inner{padding: 14px 16px 16px; gap: 12px;}
+#cb-banner{font-size: 14px; line-height: 1.5;}
+.cb-btn{padding: 12px 20px; min-height: 44px; font-size: 14.5px;}
+.cb-btns{width: 100%;}
+.cb-btn{width: 100%; min-width: 0;}
+
+/* ---- mobile menu ---- */
+.nav-panel{position:fixed;top:78px;left:14px;right:14px;z-index:79;background:rgba(22,20,21,.97);
+  backdrop-filter:blur(14px);border-radius:var(--r-lg);padding:10px;box-shadow:var(--shadow-m);
+  opacity:0;transform:translateY(-10px);pointer-events:none;transition:opacity .28s,transform .28s}
+.nav-panel.open{opacity:1;transform:none;pointer-events:auto}
+.nav-panel a{display:block;padding:14px 16px;border-radius:14px;color:#fff;font-size:16px;font-weight:500}
+.nav-panel a:hover{background:rgba(255,255,255,.09)}
+.nav-panel .btn{margin-top:6px}
+@media(min-width:901px){.nav-panel{display:none}}
+.nav-burger{cursor:pointer}
+
+</style>
+</head>
+<body>
+<!-- DSGVO-Consent-Banner (Meta Pixel) – ohne JS ausgeblendet, damit
+     wiederkehrende Besucher kein Aufblitzen sehen. -->
+<div id="cb-banner" role="dialog" aria-labelledby="cb-title" hidden>
+  <div class="cb-inner">
+    <div class="cb-text">
+      <strong id="cb-title">Cookie-Hinweis:</strong> Wir nutzen den <strong>Meta-Pixel</strong>, um zu messen, wie unsere Anzeigen wirken und wie Besucher unsere Seite nutzen. Mit „Akzeptieren“ willigen Sie in die Verarbeitung durch Meta ein. Ohne Einwilligung werden keine Marketing-Cookies gesetzt. Details: <a href="rechtliches/datenschutz.html">Datenschutzerklärung</a>.
+    </div>
+    <div class="cb-btns">
+      <button type="button" class="cb-btn cb-accept" data-consent="accept">Akzeptieren</button>
+      <button type="button" class="cb-btn cb-decline" data-consent="decline">Ablehnen</button>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  // Consent state is stored in the browser (shamms_consent).
+  window.shammsConsent = window.shammsConsent || (function(){
+    var KEY = 'shamms_consent';
+    return {
+      get: function(){ try { return localStorage.getItem(KEY); } catch(e){ return null; } },
+      set: function(v){ try { localStorage.setItem(KEY, v); } catch(e){} }
+    };
+  })();
+  function banner(){ return document.getElementById('cb-banner'); }
+  function hide(){ var b = banner(); if (b) b.hidden = true; }
+  window.shammsAcceptConsent = function(){
+    shammsConsent.set('granted');
+    if (window.shammsTrack && window.shammsTrack.grantConsent) { window.shammsTrack.grantConsent(); }
+    hide();
+  };
+  window.shammsDeclineConsent = function(){
+    shammsConsent.set('denied');
+    if (window.shammsTrack && window.shammsTrack.revokeConsent) { window.shammsTrack.revokeConsent(); }
+    hide();
+  };
+  function ready(fn){ if (document.readyState !== 'loading') { fn(); } else { document.addEventListener('DOMContentLoaded', fn); } }
+  ready(function(){
+    var b = banner();
+    if (!b) return;
+    if (shammsConsent.get()) { hide(); return; }   // bereits entschieden
+    b.hidden = false;
+    Array.prototype.forEach.call(b.querySelectorAll('[data-consent]'), function(btn){
+      btn.addEventListener('click', function(){
+        if (btn.getAttribute('data-consent') === 'accept') { window.shammsAcceptConsent(); }
+        else { window.shammsDeclineConsent(); }
+      });
+    });
+  });
+})();
+</script>
+
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-brand"><span class="nav-glyph">&gt;_</span> Shamms</a>
+    <div class="nav-links">
+      <a href="#bibliotheken">Bibliotheken</a>
+      <a href="#mitgliedschaften">Mitgliedschaften</a>
+      <a href="ki-tools/">KI-Tools</a>
+      <a href="#services">Services</a>
+      <a href="#faq">FAQ</a>
+    </div>
+    <div class="nav-cta">
+      <a class="btn btn-y btn-sm" href="https://shamms.lemonsqueezy.com/checkout/buy/63e6f947-6a51-405a-94bb-4ec865fb76f7?locale=de">Komplettpaket <span class="arrow">→</span></a>
+      <button class="nav-burger" aria-label="Menü"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="nav-panel" id="navPanel">
+  <a href="#bibliotheken">Bibliotheken</a>
+  <a href="#mitgliedschaften">Mitgliedschaften</a>
+  <a href="ki-tools/">KI-Tools</a>
+  <a href="#services">Services</a>
+  <a href="#faq">FAQ</a>
+  <a href="https://shamms.lemonsqueezy.com/checkout/buy/63e6f947-6a51-405a-94bb-4ec865fb76f7?locale=de" class="btn btn-y" style="color:var(--ink);justify-content:center">Komplettpaket — 199 €</a>
+</div>
+
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="pill rv"><i></i> Einmalkauf · Sofort-Download · kein Abo nötig</span>
+      <h1 class="rv">Prompts, die im Betrieb <span class="hl">wirklich funktionieren</span>.</h1>
+      <p class="lede rv">Vier deutschsprachige Bibliotheken für Marketing, Vertrieb &amp; Kundenservice, E-Commerce und Büro &amp; Verwaltung — fertig zum Kopieren, ohne Kurs, ohne Einrichtungsaufwand.</p>
+      <div class="hero-cta rv">
+        <a class="btn btn-y" href="https://shamms.lemonsqueezy.com/checkout/buy/63e6f947-6a51-405a-94bb-4ec865fb76f7?locale=de">Komplettpaket sichern — 199 € <span class="arrow">→</span></a>
+        <a class="btn btn-d" href="#bibliotheken">Bibliotheken ansehen</a>
+      </div>
+      <div class="hero-stats rv">
+        <div><b>4</b>Bibliotheken</div>
+        <div><b>Sofort</b>Download nach Kauf</div>
+        <div><b>DE</b>durchgehend deutschsprachig</div>
+        <div><b>Einmal</b>zahlen, dauerhaft nutzen</div>
+      </div>
+    </div>
+    <div class="hero-art rv">
+      <div class="art-frame">
+        <img class="float" src="img/illu-hero.png" alt="Illustration: Frau auf einer Wolke mit Laptop, umgeben von Kacheln und KI-Tools" width="1536" height="1024">
+        <div class="hero-badge"><b>40+</b>Prompts pro Bibliothek</div>
+      </div>
+      <div class="tool-tiles">
+        <span class="tiles-label">Kompatibel mit</span>
+        <span class="tool-tile"><span class="tt-ic"><svg viewBox="0 0 24 24" fill="#161415" aria-hidden="true"><path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.872zm16.5963 3.8558L13.1038 8.364 15.1192 7.2a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.407-.667zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.4997-2.6067-1.4997Z"/></svg></span>ChatGPT</span>
+        <span class="tool-tile"><span class="tt-ic"><svg viewBox="0 0 24 24" fill="#161415" aria-hidden="true"><path d="M17.3041 3.541h-3.6718l6.696 16.918H24Zm-10.6082 0L0 20.459h3.7442l1.3693-3.5527h7.0052l1.3693 3.5528h3.7442L10.5363 3.5409Zm-.3712 10.2232 2.2914-5.9456 2.2914 5.9456Z"/></svg></span>Claude</span>
+        <span class="tool-tile"><span class="tt-ic"><svg viewBox="0 0 24 24" fill="#161415" aria-hidden="true"><path d="M11.04 19.32Q12 21.51 12 24q0-2.49.93-4.68.96-2.19 2.58-3.81t3.81-2.55Q21.51 12 24 12q-2.49 0-4.68-.93a12.3 12.3 0 0 1-3.81-2.58 12.3 12.3 0 0 1-2.58-3.81Q12 2.49 12 0q0 2.49-.96 4.68-.93 2.19-2.55 3.81a12.3 12.3 0 0 1-3.81 2.58Q2.49 12 0 12q2.49 0 4.68.96 2.19.93 3.81 2.55t2.55 3.81"/></svg></span>Gemini</span>
+        <span class="tool-tile"><span class="tt-ic"><svg viewBox="0 0 24 24" fill="#161415" aria-hidden="true"><path d="M22.3977 7.0896h-2.3106V.0676l-7.5094 6.3542V.1577h-1.1554v6.1966L4.4904 0v7.0896H1.6023v10.3976h2.8882V24l6.932-6.3591v6.2005h1.1554v-6.0469l6.9318 6.1807v-6.4879h2.8882V7.0896zm-3.4657-4.531v4.531h-5.355l5.355-4.531zm-13.2862.0676 4.8691 4.4634H5.6458V2.6262zM2.7576 16.332V8.245h7.8476l-6.1149 6.1147v1.9723H2.7576zm2.8882 5.0404v-3.8852h.0001v-2.6488l5.7763-5.7764v7.0111l-5.7764 5.2993zm12.7086.0248-5.7766-5.1509V9.0618l5.7766 5.7766v6.5588zm2.8882-5.0652h-1.733v-1.9723L13.3948 8.245h7.8478v8.087z"/></svg></span>Perplexity</span>
+        <span class="tool-tile"><span class="tt-ic"><svg viewBox="0 0 24 24" fill="#161415" aria-hidden="true"><path d="M13.2 2.6L5.6 13.3h4.8l-1.1 8.1 8.1-11.1h-4.9z"/></svg></span>Accio</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span class="marquee-item">Marketing</span><span class="marquee-item">Vertrieb &amp; Kundenservice</span>
+    <span class="marquee-item">E-Commerce</span><span class="marquee-item">Büro &amp; Verwaltung</span>
+    <span class="marquee-item">Komplettpaket</span><span class="marquee-item">Updates-Club</span>
+    <span class="marquee-item">Pro-Membership</span><span class="marquee-item">Sofort-Download</span>
+    <span class="marquee-item">Marketing</span><span class="marquee-item">Vertrieb &amp; Kundenservice</span>
+    <span class="marquee-item">E-Commerce</span><span class="marquee-item">Büro &amp; Verwaltung</span>
+    <span class="marquee-item">Komplettpaket</span><span class="marquee-item">Updates-Club</span>
+    <span class="marquee-item">Pro-Membership</span><span class="marquee-item">Sofort-Download</span>
+  </div>
+</div>
+
+<section id="bibliotheken">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">01 — Bibliotheken</span>
+      <h2>Eine Bibliothek pro Aufgabe.</h2>
+      <p class="sub">Jede Bibliothek deckt einen Bereich ab — du wählst nur den, der zu deiner Arbeit passt. Oder nimmst direkt das Komplettpaket.</p>
+    </div>
+
+    <div class="grid g3">
+      <article class="card rv">
+        <div class="card-art"><img src="img/cover-marketing.webp" alt="Marketing-Bibliothek" loading="lazy"></div>
+        <div class="card-body">
+          <div class="card-form"><span class="tag tag-y">Bibliothek 01</span><span class="tag">PDF-Download</span></div>
+          <h3>Marketing</h3>
+          <p>Content, Social Media, SEO &amp; Kampagnen in Bestform.</p>
+          <div class="card-foot">
+            <div class="price">49 €<small>einmalig, inkl. MwSt.</small></div>
+            <a class="btn btn-y btn-sm" href="https://shamms.lemonsqueezy.com/checkout/buy/6b2bb687-4c1e-4ff0-a36b-5658bfbbd3c5?locale=de">Kaufen <span class="arrow">→</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card rv">
+        <div class="card-art"><img src="img/cover-vertrieb.webp" alt="Vertrieb und Kundenservice" loading="lazy"></div>
+        <div class="card-body">
+          <div class="card-form"><span class="tag tag-y">Bibliothek 02</span><span class="tag">PDF-Download</span></div>
+          <h3>Vertrieb &amp; Kundenservice</h3>
+          <p>Überzeugende Kommunikation mit Kunden &amp; Interessenten.</p>
+          <div class="card-foot">
+            <div class="price">49 €<small>einmalig, inkl. MwSt.</small></div>
+            <a class="btn btn-y btn-sm" href="https://shamms.lemonsqueezy.com/checkout/buy/eb5de6d0-793b-4e6d-b9f0-8db89e090a95?locale=de">Kaufen <span class="arrow">→</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card rv">
+        <div class="card-art"><img src="img/cover-ecommerce.webp" alt="E-Commerce-Bibliothek" loading="lazy"></div>
+        <div class="card-body">
+          <div class="card-form"><span class="tag tag-y">Bibliothek 03</span><span class="tag">PDF-Download</span></div>
+          <h3>E-Commerce</h3>
+          <p>Produkttexte &amp; Shop-SEO, die verkaufen.</p>
+          <div class="card-foot">
+            <div class="price">49 €<small>einmalig, inkl. MwSt.</small></div>
+            <a class="btn btn-y btn-sm" href="https://shamms.lemonsqueezy.com/checkout/buy/d7a69c2a-15db-4ab9-84ff-c2222d1e06a6?locale=de">Kaufen <span class="arrow">→</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card rv">
+        <div class="card-art"><img src="img/cover-buero.webp" alt="Büro und Verwaltung" loading="lazy"></div>
+        <div class="card-body">
+          <div class="card-form"><span class="tag tag-y">Bibliothek 04</span><span class="tag">PDF-Download</span></div>
+          <h3>Büro &amp; Verwaltung</h3>
+          <p>Tagesgeschäft schneller erledigt – vom Protokoll bis zur Mahnung.</p>
+          <div class="card-foot">
+            <div class="price">39 €<small>einmalig, inkl. MwSt.</small></div>
+            <a class="btn btn-y btn-sm" href="https://shamms.lemonsqueezy.com/checkout/buy/456c503b-7f55-4a57-8a95-86a866ebddc0?locale=de">Kaufen <span class="arrow">→</span></a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card card-dark rv span2">
+        <div class="card-body">
+          <div class="card-form"><span class="tag">Bestseller</span><span class="tag">4 Bibliotheken + Premium</span></div>
+          <h3 style="font-size:26px">Komplettpaket – mit Premium</h3>
+          <p>Alles für den KI-Start: 4 Bibliotheken + KI-Einführungs-Playbook für KMU (5 S.) + 10 Master-Systeme. Inklusive 12 Monate Updates-Club — kein Abo, keine automatische Verlängerung.</p>
+          <div class="card-foot">
+            <div class="price">199 €<small>einmalig, inkl. MwSt.</small></div>
+            <a class="btn btn-y" href="https://shamms.lemonsqueezy.com/checkout/buy/63e6f947-6a51-405a-94bb-4ec865fb76f7?locale=de">Komplettpaket kaufen <span class="arrow">→</span></a>
+          </div>
+        </div>
+        <div class="dark-art"><img src="img/illu-showcase.png" alt="Illustration: geöffnetes Notebook mit leuchtenden Karten" loading="lazy" width="1536" height="1152"></div>
+      </article>
+
+      <article class="card rv">
+        <div class="card-art logo-grid">
+          <span class="lg-tile "><svg viewBox="0 0 24 24" fill="#161415" aria-hidden="true"><path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.872zm16.5963 3.8558L13.1038 8.364 15.1192 7.2a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.407-.667zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.459a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.4997-2.6067-1.4997Z"/></svg></span>
+          <span class="lg-tile lg-crown"><svg viewBox="0 0 24 24" fill="#FCD94A" aria-hidden="true"><path d="M3 17h18l-1.6-8-4.4 3.4L12 5.5 8.9 12.4 4.5 9z"/></svg></span>
+          <span class="lg-tile "><svg viewBox="0 0 24 24" fill="#161415" aria-hidden="true"><path d="M17.3041 3.541h-3.6718l6.696 16.918H24Zm-10.6082 0L0 20.459h3.7442l1.3693-3.5527h7.0052l1.3693 3.5528h3.7442L10.5363 3.5409Zm-.3712 10.2232 2.2914-5.9456 2.2914 5.9456Z"/></svg></span>
+          <span class="lg-tile "><svg viewBox="0 0 24 24" fill="#161415" aria-hidden="true"><path d="M11.04 19.32Q12 21.51 12 24q0-2.49.93-4.68.96-2.19 2.58-3.81t3.81-2.55Q21.51 12 24 12q-2.49 0-4.68-.93a12.3 12.3 0 0 1-3.81-2.58 12.3 12.3 0 0 1-2.58-3.81Q12 2.49 12 0q0 2.49-.96 4.68-.93 2.19-2.55 3.81a12.3 12.3 0 0 1-3.81 2.58Q2.49 12 0 12q2.49 0 4.68.96 2.19.93 3.81 2.55t2.55 3.81"/></svg></span>
+          <span class="lg-tile "><svg viewBox="0 0 24 24" fill="#161415" aria-hidden="true"><path d="M22.3977 7.0896h-2.3106V.0676l-7.5094 6.3542V.1577h-1.1554v6.1966L4.4904 0v7.0896H1.6023v10.3976h2.8882V24l6.932-6.3591v6.2005h1.1554v-6.0469l6.9318 6.1807v-6.4879h2.8882V7.0896zm-3.4657-4.531v4.531h-5.355l5.355-4.531zm-13.2862.0676 4.8691 4.4634H5.6458V2.6262zM2.7576 16.332V8.245h7.8476l-6.1149 6.1147v1.9723H2.7576zm2.8882 5.0404v-3.8852h.0001v-2.6488l5.7763-5.7764v7.0111l-5.7764 5.2993zm12.7086.0248-5.7766-5.1509V9.0618l5.7766 5.7766v6.5588zm2.8882-5.0652h-1.733v-1.9723L13.3948 8.245h7.8478v8.087z"/></svg></span>
+          <span class="lg-tile "><svg viewBox="0 0 24 24" fill="#161415" aria-hidden="true"><path d="M13.2 2.6L5.6 13.3h4.8l-1.1 8.1 8.1-11.1h-4.9z"/></svg></span>
+        </div>
+        <div class="card-body">
+          <div class="card-form"><span class="tag">Enthalten</span></div>
+          <h3>12 Monate Updates-Club</h3>
+          <p>Im Komplettpaket enthalten: monatliche Anpassungen, 5 neue exklusive Prompts und Model-Update-Hinweise per E-Mail.</p>
+          <div class="card-foot">
+            <div class="price">0 €<small>im Paket enthalten</small></div>
+            <a class="btn btn-o btn-sm" href="#mitgliedschaften">Details <span class="arrow">→</span></a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="erklaerfilm">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">Erklärfilm</span>
+      <h2>In 50 Sekunden erklärt.</h2>
+      <p class="sub">Warum fertige Prompts den Unterschied machen — und wie der Ablauf aussieht.</p>
+    </div>
+    <figure class="film rv">
+      <video controls preload="metadata" playsinline poster="video/erklaerfilm-poster.jpg" width="1920" height="1080">
+        <source src="video/shamms-erklaerfilm-16x9.mp4" type="video/mp4">
+        Ihr Browser kann dieses Video nicht anzeigen.
+      </video>
+    </figure>
+    <div class="film-cta rv">
+      <a class="btn btn-y" href="https://shamms.lemonsqueezy.com/checkout/buy/63e6f947-6a51-405a-94bb-4ec865fb76f7?locale=de">Komplettpaket ansehen →</a>
+    </div>
+  </div>
+</section>
+
+<section id="mitgliedschaften">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">02 — Mitgliedschaften</span>
+      <h2>Oder monatlich mitwachsen.</h2>
+      <p class="sub">Modelle ändern sich, Prompt-Verhalten ändert sich mit. Beide Mitgliedschaften sind jederzeit kündbar — ohne Vertragsbindung.</p>
+    </div>
+    <div class="grid g2">
+      <div class="tier rv">
+        <div class="tier-art"><svg class="illu-tag" viewBox="0 0 120 120" aria-hidden="true">
+<g transform="rotate(11 46 62)"><rect x="30" y="30" width="54" height="72" rx="11" fill="#E9E6DD"/></g>
+<g transform="rotate(5 52 60)"><rect x="32" y="26" width="56" height="74" rx="11" fill="#F2EFE7"/></g>
+<g transform="rotate(-13 58 62)"><rect x="30" y="22" width="58" height="78" rx="12" fill="#FCD94A"/>
+<path d="M30 34a12 12 0 0 1 12-12h34" fill="#FDC302"/>
+<text x="45" y="55" font-family="Roboto,Arial" font-size="24" font-weight="900" fill="#161415">T</text>
+<rect x="45" y="63" width="30" height="5" rx="2.5" fill="#161415"/>
+<rect x="45" y="74" width="30" height="5" rx="2.5" fill="#161415"/>
+<rect x="45" y="85" width="20" height="5" rx="2.5" fill="#161415"/></g>
+</svg></div>
+        <span class="tag tag-y">Updates-Club</span>
+        <h3 style="margin-top:12px">Bibliotheken aktuell halten</h3>
+        <ul>
+          <li>Monatliche Anpassung der Bibliotheken an aktuelles Modellverhalten</li>
+          <li>5 neue exklusive Prompts pro Monat</li>
+          <li>Alle 2 Monate eine neue Canva- oder Notion-Vorlage</li>
+          <li>Model-Update-Hinweise per E-Mail</li>
+        </ul>
+        <div class="card-foot" style="padding-top:0">
+          <div class="price">19 €<small>pro Monat, inkl. MwSt.</small></div>
+          <a class="btn btn-y btn-sm" href="https://shamms.lemonsqueezy.com/checkout/buy/478bc4e2-2860-450f-af73-ff91e11b9441?locale=de">Beitreten <span class="arrow">→</span></a>
+        </div>
+      </div>
+
+      <div class="tier pick rv">
+        <div class="tier-art"><svg class="illu-circle" viewBox="0 0 120 120" aria-hidden="true">
+<circle cx="60" cy="62" r="40" fill="#242223"/>
+<path d="M78 42a26 26 0 1 0 2 30" fill="none" stroke="#FCD94A" stroke-width="9" stroke-linecap="round"/>
+<path d="M74 30l14 8-13 9z" fill="#FCD94A"/>
+<path d="M84 70l3.4 8.4L96 82l-8.6 3.4L84 94l-3.4-8.6L72 82l8.6-3.4z" fill="#FCD94A"/>
+</svg></div>
+        <span class="tag">Pro-Membership</span>
+        <h3 style="margin-top:12px">Für Profis und Agenturen</h3>
+        <ul>
+          <li>Alles aus dem Updates-Club</li>
+          <li>20 neue exklusive Prompts pro Monat</li>
+          <li>Monatlich ein neues Tool oder Master-System-Prompt</li>
+          <li>Früher Zugang zu neuen Produkten und vorrangiger Support</li>
+        </ul>
+        <div class="card-foot" style="padding-top:0">
+          <div class="price">99 €<small>pro Monat, inkl. MwSt.</small></div>
+          <a class="btn btn-y btn-sm" href="https://shamms.lemonsqueezy.com/checkout/buy/1156c8e5-9dcf-453c-9fb6-3f0eae4fdba3?locale=de">Pro werden <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="band rv">
+      <div style="padding:38px 0">
+        <span class="eyebrow" style="color:rgba(255,255,255,.55)">Alles in einem Paket</span>
+        <h2 style="margin-top:12px">Ein Paket. <span style="color:var(--yellow)">Dein ganzer Vorsprung.</span></h2>
+        <p class="sub">Vier Bibliotheken, das KI-Einführungs-Playbook für KMU und zehn Master-Systeme — plus 12 Monate Updates-Club inklusive.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:26px">
+          <a class="btn btn-y" href="https://shamms.lemonsqueezy.com/checkout/buy/63e6f947-6a51-405a-94bb-4ec865fb76f7?locale=de">Für 199 € freischalten <span class="arrow">→</span></a>
+          <a class="btn btn-o" style="color:#fff;border-color:rgba(255,255,255,.3);background:rgba(255,255,255,.06)" href="#services">Services ansehen</a>
+        </div>
+      </div>
+      <div class="band-art"><img src="img/illu-bundle.png" alt="Illustration: Paket mit Ordner und Karten" width="1024" height="768"></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">03 — So funktioniert's</span>
+      <h2>Drei Schritte, kein Kurs.</h2>
+    </div>
+    <div class="grid g3">
+      <div class="step rv"><span class="step-n"><b>01</b>Auswählen</span><h3>Produkt wählen &amp; bezahlen</h3><p style="color:var(--muted);font-size:14.5px;margin-top:8px;line-height:1.6">Direkt im Shop bezahlen — mit Karte oder PayPal. Keine Registrierungshürde, keine Wartezeit.</p></div>
+      <div class="step rv"><span class="step-n"><b>02</b>Herunterladen</span><h3>Sofort-Download</h3><p style="color:var(--muted);font-size:14.5px;margin-top:8px;line-height:1.6">Du erhältst deine Bibliothek unmittelbar nach dem Kauf als PDF — und per E-Mail als Sicherung.</p></div>
+      <div class="step rv"><span class="step-n"><b>03</b>Einsetzen</span><h3>Kopieren &amp; einsetzen</h3><p style="color:var(--muted);font-size:14.5px;margin-top:8px;line-height:1.6">Prompt öffnen, eckige Klammern durch deinen Kontext ersetzen, in dein KI-Tool einfügen. Fertig.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">04 — Services</span>
+      <h2>Wenn du es nicht selbst machen willst.</h2>
+      <p class="sub">Vier Leistungen, die wir für dich umsetzen. Anfrage per E-Mail — du bekommst Termin und Ablauf bestätigt, bevor etwas startet.</p>
+    </div>
+    <div class="grid g2">
+      <article class="svc rv">
+        <img src="img/service-ai-setup.webp" alt="AI-Setup" loading="lazy">
+        <div class="svc-body">
+          <h3>AI-Setup für Ihr Unternehmen</h3>
+          <p style="color:var(--muted);font-size:14.5px;margin-top:8px;line-height:1.6">Einrichtung der Arbeitsumgebung für Content, E-Mail und Datenanalyse — inklusive Onboarding und schriftlicher Kurzanleitung.</p>
+          <div class="svc-meta"><span class="meta">60-Min-Onboarding</span><span class="meta">5 Werktage</span></div>
+          <div class="card-foot"><div class="price">490 €<small>einmalig, inkl. MwSt.</small></div>
+          <a class="btn btn-d btn-sm" href="mailto:kontakt@shamms.de?subject=Anfrage:%20AI-Setup%20für%20Ihr%20Unternehmen">Anfragen <span class="arrow">→</span></a></div>
+        </div>
+      </article>
+
+      <article class="svc rv">
+        <img src="img/service-content-betreuung.webp" alt="Content-Betreuung" loading="lazy">
+        <div class="svc-body">
+          <h3>Monatliche Content-Betreuung</h3>
+          <p style="color:var(--muted);font-size:14.5px;margin-top:8px;line-height:1.6">20–30 Social-Media-Posts und 2–4 Marketing-E-Mails pro Monat, mit Redaktionsplan und Freigabe durch Sie.</p>
+          <div class="svc-meta"><span class="meta">Monatlich kündbar</span><span class="meta">Lieferung per E-Mail</span></div>
+          <div class="card-foot"><div class="price">399 €<small>pro Monat, inkl. MwSt.</small></div>
+          <a class="btn btn-d btn-sm" href="mailto:kontakt@shamms.de?subject=Anfrage:%20Monatliche%20Content-Betreuung">Anfragen <span class="arrow">→</span></a></div>
+        </div>
+      </article>
+
+      <article class="svc rv">
+        <img src="img/service-team-training.webp" alt="Team-Training" loading="lazy">
+        <div class="svc-body">
+          <h3>Team-Training: KI im Alltag</h3>
+          <p style="color:var(--muted);font-size:14.5px;margin-top:8px;line-height:1.6">Live-Session an Ihren eigenen Aufgaben statt an Beispielen, mit Handout zur Weitergabe im Team.</p>
+          <div class="svc-meta"><span class="meta">2 Stunden</span><span class="meta">30 Tage E-Mail-Nachfragen</span></div>
+          <div class="card-foot"><div class="price">690 €<small>einmalig, inkl. MwSt.</small></div>
+          <a class="btn btn-d btn-sm" href="mailto:kontakt@shamms.de?subject=Anfrage:%20Team-Training:%20KI%20im%20Alltag">Anfragen <span class="arrow">→</span></a></div>
+        </div>
+      </article>
+
+      <article class="svc rv">
+        <img src="img/service-automatisierung.webp" alt="Automatisierung" loading="lazy">
+        <div class="svc-body">
+          <h3>Automatisierung des Kundenkontakts</h3>
+          <p style="color:var(--muted);font-size:14.5px;margin-top:8px;line-height:1.6">Aufbau des automatischen Ablaufs auf Ihren Ton abgestimmt, mit Dokumentation und Einweisung.</p>
+          <div class="svc-meta"><span class="meta">7 Werktage</span><span class="meta">15 Vorlagen</span></div>
+          <div class="card-foot"><div class="price">399 €<small>einmalig, inkl. MwSt.</small></div>
+          <a class="btn btn-d btn-sm" href="mailto:kontakt@shamms.de?subject=Anfrage:%20Automatisierung%20des%20Kundenkontakts">Anfragen <span class="arrow">→</span></a></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap grid g2" style="align-items:start;gap:44px">
+    <div class="rv">
+      <span class="eyebrow">05 — Warum Updates</span>
+      <h2>Modelle ändern sich. Deine Prompts müssen mit.</h2>
+      <p class="sub">Seit ChatGPT offen ist, kommt im Schnitt alle paar Monate ein Modell, das Prompt-Verhalten verschiebt. Ein Prompt, der gestern stark war, kann morgen schwächer arbeiten — genau dafür gibt es den Updates-Club.</p>
+      <a class="btn btn-d" style="margin-top:24px" href="#mitgliedschaften">Mitgliedschaften ansehen <span class="arrow">→</span></a>
+    </div>
+    <div class="tl rv">
+      <div class="tl-row"><span class="tl-dot"><i></i></span><span class="tl-y">30.11.2022</span><span><span class="tl-t">ChatGPT startet</span><span class="tl-s">Prompt-Qualität wird zur Alltagskompetenz.</span></span></div>
+      <div class="tl-row"><span class="tl-dot"><i></i></span><span class="tl-y">14.03.2023</span><span><span class="tl-t">GPT-4</span><span class="tl-s">Komplexe Wissensarbeit wird belastbar.</span></span></div>
+      <div class="tl-row"><span class="tl-dot"><i></i></span><span class="tl-y">20.07.2023</span><span><span class="tl-t">Custom Instructions</span><span class="tl-s">Kontext bleibt erhalten statt neu eingefügt.</span></span></div>
+      <div class="tl-row"><span class="tl-dot"><i></i></span><span class="tl-y">06.12.2023</span><span><span class="tl-t">Gemini</span><span class="tl-s">Ein weiteres Modell mit eigenem Prompt-Verhalten.</span></span></div>
+      <div class="tl-row"><span class="tl-dot"><i></i></span><span class="tl-y">04.03.2024</span><span><span class="tl-t">Claude 3</span><span class="tl-s">Drei Größenklassen, drei Antwortstile.</span></span></div>
+    </div>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <div class="sec-head rv"><span class="eyebrow">06 — FAQ</span><h2>Häufige Fragen.</h2></div>
+    <div class="faq rv">
+      <div class="faq-item">
+        <button class="faq-q">Einmalkauf oder Mitgliedschaft?<span class="faq-ic">+</span></button>
+        <div class="faq-a"><p>Beides ist möglich und unabhängig voneinander. Die Bibliotheken und das Komplettpaket kaufst du einmalig und nutzt sie dauerhaft. Die Mitgliedschaften sind optional und monatlich kündbar. Es gibt keine versteckten Kosten und keine automatische Verlängerung.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Was ist im Komplettpaket enthalten?<span class="faq-ic">+</span></button>
+        <div class="faq-a"><p>Alle vier Bibliotheken, das KI-Einführungs-Playbook für KMU (5 Seiten) und zehn Master-Systeme. Zusätzlich sind die ersten 12 Monate Updates-Club enthalten — danach entscheidest du freiwillig, ob du für 19 €/Monat weitermachst.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Worin unterscheiden sich Updates-Club und Pro-Membership?<span class="faq-ic">+</span></button>
+        <div class="faq-a"><p>Der Updates-Club (19 €/Monat) hält deine bestehenden Bibliotheken aktuell: monatliche Anpassungen, 5 neue exklusive Prompts pro Monat, alle 2 Monate eine Vorlage und Model-Update-Hinweise. Die Pro-Membership (99 €/Monat) ist für Profis und Agenturen gedacht: alles aus dem Updates-Club plus 20 neue Prompts pro Monat, monatlich ein neues Tool oder Master-System-Prompt, früher Zugang zu neuen Produkten und vorrangiger Support.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q">Wie schnell bekomme ich Zugriff?<span class="faq-ic">+</span></button>
+        <div class="faq-a"><p>Sofort nach dem Kauf. Du landest direkt auf der Lieferansicht mit dem Download und erhältst denselben Zugang zusätzlich per E-Mail. Nichts muss installiert werden.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="f-grid">
+      <div>
+        <div class="nav-brand" style="font-size:19px;margin-bottom:12px"><span class="nav-glyph">&gt;_</span> Shamms</div>
+        <p style="color:rgba(255,255,255,.6);font-size:14px;line-height:1.6;max-width:34ch">Deutschsprachige Prompt-Bibliotheken für Marketing, Vertrieb, E-Commerce und Büro.</p>
+        <a href="mailto:kontakt@shamms.de" style="margin-top:10px;color:var(--yellow)">kontakt@shamms.de</a>
+      </div>
+      <div>
+        <h4>Produkte</h4>
+        <a href="#bibliotheken">Bibliotheken</a>
+        <a href="#mitgliedschaften">Mitgliedschaften</a>
+        <a href="ki-tools/">KI-Tools</a>
+        <a href="#services">Services</a>
+      </div>
+      <div>
+        <h4>Rechtliches</h4>
+        <a href="rechtliches/impressum.html">Impressum</a>
+        <a href="rechtliches/datenschutz.html">Datenschutz</a>
+        <a href="rechtliches/agb.html">AGB</a>
+        <a href="rechtliches/widerruf.html">Widerruf</a>
+        <a href="rechtliches/widerruf-formular.html">Widerruf-Formular</a>
+      </div>
+      <div>
+        <h4>Hinweise</h4>
+        <span style="display:block;color:rgba(255,255,255,.6);font-size:13.5px;line-height:1.6">Alle Preise inkl. MwSt.<br>Keine automatische Verlängerung.<br>Mitgliedschaften monatlich kündbar.</span>
+      </div>
+    </div>
+    <div class="f-bottom">
+      <span>© 2026 Shamms. Alle Rechte vorbehalten.</span>
+      <span>Alle Preise inkl. MwSt. · Zahlung über Lemon Squeezy</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ---- reveal on scroll (staggered) ---- */
+(function(){
+  var items = document.querySelectorAll('.rv');
+  function showAll(){ items.forEach(function(e){ e.style.transitionDelay='0ms'; e.classList.add('in'); }); }
+
+  /* deep link (#anker) or anchor jump: show immediately, otherwise content stays hidden */
+  if(location.hash) showAll();
+  window.addEventListener('hashchange', showAll);
+  if(!('IntersectionObserver' in window)){ showAll(); return; }
+  /* safety net: reveal anything already inside the viewport shortly after load */
+  window.addEventListener('load', function(){
+    setTimeout(function(){
+      document.querySelectorAll('.rv:not(.in)').forEach(function(e){
+        var r = e.getBoundingClientRect();
+        if(r.top < window.innerHeight && r.bottom > 0){ e.style.transitionDelay='0ms'; e.classList.add('in'); }
+      });
+    }, 250);
+  });
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(en){
+      if(en.isIntersecting){
+        var el = en.target;
+        var sibs = Array.prototype.slice.call(el.parentNode.children).filter(function(c){return c.classList && c.classList.contains('rv')});
+        var i = Math.max(0, sibs.indexOf(el));
+        el.style.transitionDelay = Math.min(i*70, 350) + 'ms';
+        el.classList.add('in');
+        io.unobserve(el);
+      }
+    });
+  }, {rootMargin:'0px 0px -12% 0px', threshold:0.12});
+  items.forEach(function(e){ io.observe(e) });
+})();
+
+/* ---- nav shrink ---- */
+(function(){
+  var nav = document.getElementById('nav'), last=0;
+  window.addEventListener('scroll', function(){
+    var y = window.scrollY;
+    if(y > 20 && !nav.classList.contains('stuck')) nav.classList.add('stuck');
+    else if(y <= 20) nav.classList.remove('stuck');
+    last = y;
+  }, {passive:true});
+})();
+
+/* ---- FAQ accordion ---- */
+document.querySelectorAll('.faq-q').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var item = btn.closest('.faq-item');
+    var panel = item.querySelector('.faq-a');
+    var open = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(function(o){
+      o.classList.remove('open');
+      o.querySelector('.faq-a').style.maxHeight = '0px';
+    });
+    if(!open){
+      item.classList.add('open');
+      panel.style.maxHeight = panel.scrollHeight + 'px';
+    }
+  });
+});
+
+/* ---- subtle parallax on hero art ---- */
+(function(){
+  var art = document.querySelector('.hero-art');
+  if(!art || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if(window.matchMedia('(max-width: 980px)').matches) return;
+  var img = art.querySelector('img');
+  art.addEventListener('mousemove', function(e){
+    var r = art.getBoundingClientRect();
+    var x = (e.clientX - r.left)/r.width - .5, y = (e.clientY - r.top)/r.height - .5;
+    img.style.transform = 'translate3d(' + (x*14).toFixed(2) + 'px,' + (y*14).toFixed(2) + 'px,0)';
+  });
+  art.addEventListener('mouseleave', function(){ img.style.transform = ''; });
+})();
+
+/* ---- count-up for the 40+ badge ---- */
+(function(){
+  var el = document.querySelector('.hero-badge b');
+  if(!el) return;
+  var target = 40, done = false;
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(e.isIntersecting && !done){
+        done = true; var n = 0;
+        var t = setInterval(function(){
+          n += 2; if(n >= target){ n = target; clearInterval(t); }
+          el.textContent = n + '+';
+        }, 26);
+      }
+    });
+  }, {threshold:.6});
+  io.observe(el);
+})();
+
+/* ---- mobile menu ---- */
+(function(){
+  var b=document.querySelector('.nav-burger'), p=document.getElementById('navPanel');
+  if(!b||!p) return;
+  b.addEventListener('click',function(e){ e.stopPropagation(); p.classList.toggle('open'); });
+  p.addEventListener('click',function(e){ if(e.target.tagName==='A') p.classList.remove('open'); });
+  document.addEventListener('click',function(){ p.classList.remove('open'); });
+})();
+
+</script>
+</body>
+</html>

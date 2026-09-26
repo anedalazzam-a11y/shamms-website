@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://shamms.de/</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://shamms.de/rechtliches/impressum</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://shamms.de/rechtliches/datenschutz</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://shamms.de/rechtliches/agb</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://shamms.de/rechtliches/widerruf</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+  <url>
+    <loc>https://shamms.de/rechtliches/widerruf-formular</loc>
+    <lastmod>2026-09-21</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+<!-- KI-TOOLS:BEGIN -->
+  <url><loc>https://shamms.de/ki-tools/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://shamms.de/ki-tools/synthesia/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://shamms.de/ki-tools/adobe/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://shamms.de/ki-tools/fliki/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://shamms.de/ki-tools/luma/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://shamms.de/ki-tools/elevenlabs/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://shamms.de/ki-tools/murf/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://shamms.de/ki-tools/notion/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://shamms.de/ki-tools/chatgpt/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://shamms.de/ki-tools/fireflies/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://shamms.de/ki-tools/jasper/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://shamms.de/ki-tools/descript/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://shamms.de/ki-tools/perplexity/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <!-- KI-TOOLS:END -->
+</urlset>
