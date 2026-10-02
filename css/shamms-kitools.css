@@ -1,0 +1,122 @@
+@charset "UTF-8";
+/* ==========================================================================
+   Brücke zwischen Design-System und den bestehenden KI-Tools-Seiten
+   Version 1.0 · 2026-09-29
+
+   Die 16 Werkzeugseiten behalten ihr Inhaltsmarkup (Klassen mit dem Präfix
+   „kt-"). Diese Datei übersetzt die alten Bausteine in die Tokens des Systems,
+   damit die Seiten wie der Rest von Shamms aussehen. Sie wird NACH den alten
+   Stylesheets geladen und gewinnt dadurch in der Kaskade.
+   ========================================================================== */
+
+/* Grundtypografie und Raster auf Systemwerte bringen ------------------- */
+body{font-family:var(--font-sans);font-size:var(--fs-body);line-height:var(--lh-body);background:var(--cream);color:var(--ink)}
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-inline:var(--s-gutter)}
+h1,.kt-h1{font-size:var(--fs-h1);line-height:var(--lh-head);font-weight:var(--fw-black);letter-spacing:var(--tracking-head)}
+h2,.kt-h2{font-size:var(--fs-h2);line-height:var(--lh-head);font-weight:var(--fw-black);letter-spacing:var(--tracking-head);margin-bottom:var(--s-4)}
+h3,.kt-h3{font-size:var(--fs-h3);font-weight:var(--fw-bold)}
+p{color:var(--muted)}
+a{color:inherit}
+
+/* Buttons: eine Form, ein Gelb — nur im Inhalt der Bereichsseiten.
+   Kopfzeile und Mobilmenü kommen unverändert aus dem Designsystem. */
+main .btn,main .btn-y,main .kt-cta{
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  min-height:48px;padding:13px 22px;border-radius:var(--r-pill);border:1px solid transparent;
+  background:var(--brand);color:var(--brand-ink);font:inherit;font-weight:var(--fw-medium);
+  box-shadow:var(--shadow-brand);cursor:pointer;transition:transform var(--t-fast),background var(--t-fast)
+}
+main .btn:hover,main .btn-y:hover,main .kt-cta:hover{background:var(--brand-deep);transform:translateY(-1px);color:var(--brand-ink)}
+main .btn-sm,main .btn.btn-sm{min-height:40px;padding:9px 16px;font-size:var(--fs-sm)}
+
+/* Kopfbereich der Werkzeugseite -------------------------------------- */
+.kt-head{background:var(--ink);color:var(--paper);padding:clamp(28px,4vw,52px) 0 clamp(22px,3vw,36px)}
+.kt-head h1{color:var(--paper);margin:10px 0 12px}
+.kt-head p,.kt-head .kt-lede{color:rgba(255,255,255,.8)}
+.kt-hero-ic{border-radius:var(--r-md);box-shadow:var(--shadow-s)}
+.kt-app-co,.kt-tags,.kt-hero,.kt-facts dt{font-family:var(--font-mono);letter-spacing:var(--tracking-label);text-transform:uppercase;font-size:11.5px}
+.kt-tags span,.kt-tag{background:var(--cream-2);border:1px solid var(--line);border-radius:var(--r-pill);padding:4px 10px;color:var(--muted)}
+
+/* Karten, Chips, Listen --------------------------------------------- */
+.kt-card{background:var(--paper);border:1px solid var(--line);border-radius:var(--r-lg);box-shadow:var(--shadow-s);
+  transition:transform var(--t-base),box-shadow var(--t-base),border-color var(--t-base)}
+.kt-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-m);border-color:var(--line-strong)}
+.kt-chip{border:1px solid var(--line-strong);border-radius:var(--r-pill);background:var(--paper);min-height:40px;
+  display:inline-flex;align-items:center;gap:8px;padding:8px 16px;font-size:var(--fs-sm)}
+.kt-chip:hover{background:var(--cream-2)}
+.kt-chip.is-active,.kt-chip[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:var(--paper)}
+.kt-search input,.kt-tools-bar input,.kt-tools-bar select{min-height:46px;border:1px solid var(--line-strong);
+  border-radius:var(--r-pill);padding:11px 16px;font:inherit;background:var(--paper)}
+.kt-list{padding-left:0;list-style:none}
+.kt-list li{position:relative;padding-left:26px;margin-bottom:8px;color:var(--muted)}
+.kt-list.is-ok li::before{content:"✓";position:absolute;left:0;color:var(--success-ink);font-weight:var(--fw-bold)}
+.kt-list.is-no li::before{content:"–";position:absolute;left:4px;color:var(--muted-2)}
+.kt-box{border-radius:var(--r-md);padding:var(--s-5);border:1px solid transparent}
+.kt-box.is-ok{background:var(--success-bg);border-color:rgba(31,157,85,.25)}
+.kt-box.is-no{background:var(--danger-bg);border-color:rgba(255,77,90,.25)}
+.kt-split{display:grid;grid-template-columns:1fr 1fr;gap:var(--s-5)}
+@media (max-width:900px){.kt-split{grid-template-columns:1fr}}
+.kt-alt{display:block;background:var(--paper);border:1px solid var(--line);border-radius:var(--r-md);padding:var(--s-4) var(--s-5)}
+.kt-alt:hover{border-color:var(--line-strong);box-shadow:var(--shadow-s)}
+.kt-alts{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s-4)}
+@media (max-width:900px){.kt-alts{grid-template-columns:1fr}}
+.kt-facts{border:1px solid var(--line);border-radius:var(--r-md);background:var(--cream-2);padding:var(--s-4) var(--s-5)}
+.kt-facts dd{margin:0 0 10px;font-weight:var(--fw-medium)}
+.kt-facts dt{color:var(--muted-2)}
+.kt-fineprint{font-size:var(--fs-xs);color:var(--muted-2)}
+.kt-detail h2{margin-top:var(--s-9)}
+.kt-design{border:1px solid var(--line);border-radius:var(--r-lg);overflow:hidden;background:var(--paper);box-shadow:var(--shadow-s)}
+.kt-design-chips li,.kt-design-chips span{font-size:var(--fs-sm);color:var(--muted)}
+.kt-start{background:var(--ink);color:var(--paper);border-radius:var(--r-lg);padding:var(--s-7);margin-top:var(--s-9)}
+.kt-start h2{color:var(--paper)}
+.kt-start p{color:rgba(255,255,255,.75)}
+.kt-chat{border:1px solid var(--line);border-radius:var(--r-lg);background:var(--paper);box-shadow:var(--shadow-s)}
+
+/* Brotkrumen im Bereich --------------------------------------------- */
+.wrap > a:first-child,.kt-breadcrumb{font-size:var(--fs-xs);color:var(--muted)}
+
+/* Fußzeile der alten Seiten wird nicht mehr verwendet ----------------- */
+footer .f-grid,footer .f-bottom{display:none}
+
+/* Kopfzeile: die alte schwebende Navigation der Bereichsseiten ausschalten,
+   damit die Kopfzeile aus dem System greift (Ursache: .nav in shamms-ui.css
+   war position:fixed und liess den Kopf auf 1 px zusammenfallen). */
+.site-header .nav{
+  /* Nur die alte Positionierung aufheben – Abstände kommen aus dem System,
+     damit die Kopfzeile überall gleich hoch ist. */
+  position:static;top:auto;left:auto;right:auto;transform:none;pointer-events:auto;
+  padding:12px clamp(16px,3vw,28px);min-height:64px;max-width:1180px;margin-inline:auto;
+  background:transparent;box-shadow:none;border-radius:0;
+}
+.site-header .nav__items{margin-left:auto}
+@media (max-width:1024px){.site-header .nav__items{display:none}}
+
+/* Kopfzeile vollständig aus dem Designsystem.
+   Die alten Bereichs-Stylesheets adressieren die Kopfzeile über eigene Klassen
+   (.nav-links, .nav-cta). Wir setzen nur dort zurück, wo sie das System
+   überschreiben würden – Schrift und Abstände der Navigationspunkte bleiben
+   exakt wie auf allen anderen Seiten. */
+.site-header .nav__items a,.site-header .nav__panel a{font:inherit;letter-spacing:inherit}
+.site-header .nav__cta{font:inherit}
+
+/* Markenblock in der Kopfzeile auf Systemmaße (Logo 36 px) */
+.site-header .nav-brand{display:flex;align-items:center;gap:10px;height:36px}
+.site-header .nav-brand svg,.site-header .nav-brand img,.site-header .nav-glyph{width:36px;height:36px}
+
+
+/* Aufgaben-Einstieg (Phase 2.5): Aufgabe -> Werkzeug -> Anwendung -> Shamms-System */
+#aufgaben .kt-auf-list{display:grid;gap:10px;margin-top:18px}
+.kt-auf{border:1px solid var(--line);border-radius:var(--r-md);background:var(--paper)}
+.kt-auf>summary{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline;
+  justify-content:space-between;padding:15px 18px;min-height:24px;cursor:pointer;
+  font-weight:600;color:var(--ink);list-style-position:inside}
+.kt-auf>summary::marker{color:var(--brand-deep)}
+.kt-auf-t{font-size:1rem}
+.kt-auf-tools{font-weight:400;font-size:.88rem;opacity:.72}
+.kt-auf-tools a{text-decoration:underline}
+.kt-auf-body{padding:0 18px 16px;display:grid;gap:8px}
+.kt-auf-body p{margin:0;line-height:1.55}
+.kt-auf-k{display:inline-block;min-width:112px;font-weight:600;color:var(--ink)}
+.kt-auf-s{display:block;margin-top:2px;opacity:.78}
+/* Phase 3B: der Weg zum Shamms-System ist schon im geschlossenen Zustand sichtbar. */
+.kt-auf-next{font-weight:600;font-size:.85rem;color:var(--brand-deep);white-space:nowrap}
