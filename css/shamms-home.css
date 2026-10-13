@@ -1,0 +1,85 @@
+@charset "UTF-8";
+/* ==========================================================================
+   Shamms – seitenspezifische Ergänzungen der Startseite
+   Nur was das Design-System nicht abdeckt. Version 1.0 · 2026-09-29
+   ========================================================================== */
+
+/* Kopfbereich -------------------------------------------------------- */
+.hero{padding-top:clamp(28px,5vw,64px)}
+.hero .split > *{min-width:0}
+.hero .grid--4{gap:14px}
+@media (max-width:700px){.hero .grid--4{grid-template-columns:repeat(2,1fr)}}
+.hero .eyebrow{border:1px solid var(--line);background:var(--paper);padding:7px 14px;border-radius:var(--r-pill)}
+.hero .stat b{color:var(--ink)}
+.hero .stat .meta{font-size:var(--fs-xs)}
+.hero .card--cream .card__art{background:var(--cream-2)}
+.hero .card--cream .card__art img{object-fit:contain;padding:14px}
+.hero .hero-badge{font-weight:var(--fw-black);font-size:19px;letter-spacing:-.01em}
+.hl{background:linear-gradient(transparent 62%,var(--brand) 62%);padding:0 .08em}
+
+/* Paket-Band -------------------------------------------------------- */
+.section--ink img{margin-inline:auto;max-width:420px}
+.section--ink .eyebrow--on-ink{margin-bottom:var(--s-3)}
+.section--ink h2{color:var(--paper)}
+
+/* Mitgliedschaften: Listen in den Karten ---------------------------- */
+.card .spec-list li{padding:10px 0;font-size:var(--fs-sm);color:var(--muted);border-bottom:1px solid var(--line)}
+.card .spec-list li:last-child{border-bottom:0}
+
+/* Video ------------------------------------------------------------- */
+video{aspect-ratio:16/9;background:var(--ink-2)}
+
+/* Mobiles Panel: Kopfzeile im Panel --------------------------------- */
+.nav__panel .nav__brand{font-size:19px}
+.nav__panel .nav__toggle{width:44px;min-height:44px;font-size:16px}
+
+/* Fusszeile --------------------------------------------------------- */
+.site-footer .stack h4{font-size:var(--fs-sm);font-family:var(--font-sans);letter-spacing:0;text-transform:none;
+  color:var(--paper);margin:0 0 2px}
+.site-footer .stack a{font-size:14.5px}
+.footer-legal{align-items:center;justify-content:space-between}
+
+.hero-badge b{margin-right:6px}
+
+/* Fix: Rasterspalten duerfen schrumpfen, Bilder mit max-width ziehen sie nicht auf */
+.split > *{min-width:0}
+.section--ink img{width:100%;max-width:420px;height:auto}
+
+/* Karten heben sich vom cremefarbenen Seitenhintergrund ab */
+.card{box-shadow:var(--shadow-s)}
+.card--ink{box-shadow:var(--shadow-m)}
+.card--ink .card__art{background:var(--paper)}
+.card--ink .price{color:var(--paper)}
+/* Klarere Lesbarkeit in den Karten */
+.card__title{letter-spacing:-.015em}
+.card--compact .card__text{font-size:15px}
+
+/* Einheitliche Produktkarten: kein gelber Oberrand mehr, keine Streckung in der Rasterzeile */
+.card--library{border-top-width:1px;border-top-color:var(--line)}
+.card--ink.card--library{border-top-color:var(--ink)}
+#bibliotheken .grid, #bildung .grid, #buchhaltung .grid{align-items:start}
+
+/* Bibliothekskarten: Laptop-Motiv, Text liegt im Display ------------------ */
+.card__art--laptop{position:relative;background:var(--ink-2)}
+.card__art--laptop > img{width:100%;height:100%;object-fit:cover;display:block}
+.card__art--laptop .screen{
+  position:absolute;left:22.1%;top:17.7%;width:55.1%;height:52.2%;
+  display:flex;flex-direction:column;justify-content:flex-start;gap:4px;
+  padding:9px 11px;overflow:hidden;border-radius:2px;
+  background:linear-gradient(160deg,var(--navy),var(--navy-deep));
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.06);
+  container-type:size;
+}
+.screen__kicker{font-family:var(--font-mono);font-size:clamp(7px,4.6cqw,9.5px);
+  letter-spacing:.14em;text-transform:uppercase;color:var(--brand)}
+.screen__title{font-size:clamp(12px,9cqw,17.5px);line-height:1.06;font-weight:900;
+  letter-spacing:-.02em;color:var(--paper)}
+.screen__line{font-size:clamp(8.5px,5.6cqw,10.5px);line-height:1.3;color:rgba(255,255,255,.84)}
+.screen__meta{margin-top:auto;font-family:var(--font-mono);font-size:clamp(7px,4.2cqw,8.5px);
+  letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.62)}
+/* Bei kleinen Karten entfaellt die Beschreibung im Display (steht in der Karte) */
+@container (max-width:166px){
+  .screen__line{display:none}
+  .screen__title{font-size:clamp(13px,10cqw,17px)}
+}
+
